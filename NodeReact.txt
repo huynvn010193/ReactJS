@@ -1,0 +1,7 @@
+29/01/2018: 
+	+ Tải Tiện ích React Developer cho Chorme
+	+ Lệnh cài đặt: https://reactjs.org/docs/add-react-to-a-new-app.html
+		- npm install -g create-react-app
+		- create-react-app my-app
+		- cd my-app
+		- npm start
