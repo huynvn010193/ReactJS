@@ -9,4 +9,5 @@
 	+ JSX: Javascript Syntax Extension
 	+ JSX = Javascript + XML: cú pháp thay thế Javascript, cách viết gần giống XML. Thay thế React.createElement()
 	+ JSX không phải là HTML
-	
+	+Props:
+		- Đây là thuộc tính của 1 components nào đó.
