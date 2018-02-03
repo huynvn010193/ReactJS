@@ -3,6 +3,7 @@ import $ from 'jquery';
 
 class Lifecycle extends Component {
 
+    //======== Mounting ============
     constructor(props)
     {
         super(props);
@@ -23,16 +24,46 @@ class Lifecycle extends Component {
 
     componentDidMount()
     {
+        console.log("componentDidMount");
         $("h3.panel-title").css("color","white");
     }
+
+    // ========================
     
+    // ====== Updating ========
+    componentWillReceiveProps()
+    {
+        console.log("componentWillReceiveProps");
+    }
+
+    shouldComponentUpdate(nextProps, nextState)
+    {
+        console.log(nextState);
+        console.log("shouldComponentUpdate");
+        return true;
+    }
+
+    componentWillUpdate()
+    {
+        console.log("componentWillUpdate");
+    }
+
+    componentDidUpdate()
+    {
+        console.log("componentDidUpdate");
+    }
+
+    componentWillUnmount()
+    {
+        console.log("componentWillUnmount");
+    }
+    // ======================== //
     handleChangetitle()
     {
         this.setState({
             title : "LifecycleCompnent - handleChangetitle"
         })
     }
-
     render(){
         console.log("render");
         return (
