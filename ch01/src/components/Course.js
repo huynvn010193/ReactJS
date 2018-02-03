@@ -10,6 +10,11 @@ class Course extends Component {
     constructor(props)
     {
         super(props);
+        // thiết lập trạng thái cho phần đóng mở
+        this.state = {
+            isShowOutLine : true,
+            totalStudent : 69
+        };
         this.handleClick3 = this.handleClick3.bind(this);
         this.registerCourse = this.registerCourse.bind(this);
     }
@@ -55,6 +60,16 @@ class Course extends Component {
         }
     }
     render() {
+        let elmOutline = null;
+        if(this.state.isShowOutLine)
+        {
+            elmOutline =    <ul className="list-group">
+                                <Lesson />
+                                <Lesson />
+                                <Lesson />
+                                <Lesson />
+                            </ul>
+        }
         return (
             <div>
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -65,12 +80,10 @@ class Course extends Component {
                         <div className="panel-body">
                             <p>{this.props.time}</p>
                             <p>{this.props.children}</p>
-                            <ul className="list-group">
-                                <Lesson />
-                                <Lesson />
-                                <Lesson />
-                                <Lesson />
-                            </ul>
+                            <p>
+                                <button className="btn btn-success" type="button">Toogle Outline</button>
+                            </p>
+                            {elmOutline}
                         </div>
                         <div className="panel-footer">
                             {this.showButtonFree()}

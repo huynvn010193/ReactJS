@@ -25,7 +25,7 @@ class App extends Component {
 			}
 		];
 		const elemCourse = items.map((item,index) =>
-			<Course key={index} name={item.name} time={item.time} free = {item.free} >item.desc</Course>
+			<Course key={index} name={item.name} time={item.time} free = {item.free} >{item.desc}</Course>
 		);
 	    return (
 	      	<div className="row">
