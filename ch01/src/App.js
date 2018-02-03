@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Course from './components/Course';
+import Lifecycle from './components/Lifecycle';
 
 class App extends Component {
 	render() {
@@ -24,12 +25,14 @@ class App extends Component {
 				desc : ""
 			}
 		];
-		const elemCourse = items.map((item,index) =>
+		let elemCourse = items.map((item,index) =>
 			<Course key={index} name={item.name} time={item.time} free = {item.free} >{item.desc}</Course>
 		);
+		elemCourse = null;
 	    return (
 	      	<div className="row">
 	      		{elemCourse}
+	      		<Lifecycle/>
 			</div>
 	    );
 	}

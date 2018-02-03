@@ -13,3 +13,5 @@
 		- Đây là thuộc tính của 1 components nào đó.
 	03/02/2018:
 	+ Khi State thay đổi thì toàn bộ render cũng thay đổi.
+	+ LifeCycle: contructor -> componentWillMount() -> render -> componentDidMount()
+	+ componentDidMount(): nhúng thư viên jQuery hay đưa ra những tương tác trên các thành phần này
