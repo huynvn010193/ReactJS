@@ -11,3 +11,5 @@
 	+ JSX không phải là HTML
 	+Props:
 		- Đây là thuộc tính của 1 components nào đó.
+	03/02/2018:
+	+ Khi State thay đổi thì toàn bộ render cũng thay đổi.

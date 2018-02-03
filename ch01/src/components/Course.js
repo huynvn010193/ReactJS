@@ -10,13 +10,14 @@ class Course extends Component {
     constructor(props)
     {
         super(props);
-        // thiết lập trạng thái cho phần đóng mở
+        // thiết lập state: trạng thái cho phần đóng mở
         this.state = {
-            isShowOutLine : true,
+            isShowOutLine : false,
             totalStudent : 69
         };
         this.handleClick3 = this.handleClick3.bind(this);
         this.registerCourse = this.registerCourse.bind(this);
+        this.handleToogleOutline = this.handleToogleOutline.bind(this);
     }
 
     handleClick1()
@@ -35,7 +36,12 @@ class Course extends Component {
     {
         console.log(this.refs.username.value);
     }
-
+    handleToogleOutline()
+    {
+        this.setState({
+            isShowOutLine : !this.state.isShowOutLine
+        });
+    }
     showButtonFree()
     {
         const isFree = this.props.free;
@@ -81,7 +87,7 @@ class Course extends Component {
                             <p>{this.props.time}</p>
                             <p>{this.props.children}</p>
                             <p>
-                                <button className="btn btn-success" type="button">Toogle Outline</button>
+                                <button onClick = {this.handleToogleOutline} className="btn btn-success" type="button">Toogle Outline</button>
                             </p>
                             {elmOutline}
                         </div>
