@@ -3,15 +3,36 @@ import './App.css';
 import Course from './components/Course';
 
 class App extends Component {
-  render() {
-    return (
-      	<div className="row">
-      		<Course name="ReactJS" time="30h" free={true}>ReactJS is very simple</Course>
-      		<Course name="Angular 4x" time="55h" free={false}></Course>
-      		<Course name="NodeJS" time="35h" free={true}></Course>
-		</div>
-    );
-  }
+	render() {
+		const items = [
+			{
+				name : "ReactJS",
+				time : "32h",
+				free : true,
+				desc : "ReactJS is very simple"
+			},
+			{
+				name : "Angular 5x",
+				time : "55h",
+				free : false,
+				desc : ""
+			},
+			{
+				name : "NodeJS",
+				time : "35h",
+				free : true,
+				desc : ""
+			}
+		];
+		const elemCourse = items.map((item,index) =>
+			<Course key={index} name={item.name} time={item.time} free = {item.free} >item.desc</Course>
+		);
+	    return (
+	      	<div className="row">
+	      		{elemCourse}
+			</div>
+	    );
+	}
 }
 
 export default App;

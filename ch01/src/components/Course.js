@@ -6,14 +6,52 @@ class Course extends Component {
     /*formatName(user) {
         return user.firstName + ' ' + user.lastName;
     }*/
+    // Do this.props.name không hiểu là gì => dùng contructor
+    constructor(props)
+    {
+        super(props);
+        this.handleClick3 = this.handleClick3.bind(this);
+        this.registerCourse = this.registerCourse.bind(this);
+    }
+
+    handleClick1()
+    {
+        alert("View 1");
+    }
+    handleClick2(content)
+    {
+        alert(content);
+    }
+    handleClick3()
+    {
+        alert(this.props.name);
+    }
+    registerCourse()
+    {
+        console.log(this.refs.username.value);
+    }
+
     showButtonFree()
     {
         const isFree = this.props.free;
         if(isFree === true)
         {
-            return <div className="panel-footer">
-                        <button type="button" className="btn btn-warning">view</button>
+            return  <div className="btn-group">
+                        <button onClick = {this.handleClick1} type="button" className="btn btn-warning">view1</button>
+                        <button onClick = {() => this.handleClick2("view2 123")} type="button" className="btn btn-danger">view2</button>
+                        <button onClick = {this.handleClick3} type="button" className="btn btn-success">view3</button>
                     </div>;
+        }
+        else
+        {
+            return (
+                <div className="input-group">
+                    <span className="input-group-btn">
+                        <button onClick = {this.registerCourse} className="btn btn-info" type="button">Register!</button>
+                    </span>
+                    <input type="text" className="form-control" placeholder="username" ref="username" />
+                </div>
+            )
         }
     }
     render() {
@@ -34,7 +72,9 @@ class Course extends Component {
                                 <Lesson />
                             </ul>
                         </div>
-                        {this.showButtonFree()}
+                        <div className="panel-footer">
+                            {this.showButtonFree()}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,3 +82,4 @@ class Course extends Component {
     }
 }
 export default Course;
+
