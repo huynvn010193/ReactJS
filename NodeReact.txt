@@ -18,3 +18,4 @@
 		- Updating: componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() ->render() -> componentDidUpdate()
 	+ componentDidMount(): nhúng thư viên jQuery hay đưa ra những tương tác trên các thành phần này
 		- shouldComponentUpdate(): khi retrun false thì sẽ không dc chạy tiếp
+	npm install jquery --save

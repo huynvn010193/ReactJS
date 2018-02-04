@@ -101,4 +101,3 @@ class Course extends Component {
     }
 }
 export default Course;
-
