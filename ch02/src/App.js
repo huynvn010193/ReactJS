@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Title from './components/Title';
 
 class App extends Component {
 	constructor(props)
@@ -11,11 +12,9 @@ class App extends Component {
 	render() {
 	    return (
 	    <div className="row">
-	    		{/* TITLE : START */}
-	        <div className="page-header">
-	          	<h1>Project 01 - ToDo List <small>ReactJS</small></h1>
-	        </div>
-			{/* TITLE : END */}
+	    	{ /*TITLE : START*/ }
+	    	<Title />
+	    	{ /*TITLE : END */ }
 
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
         	<div className="row">
