@@ -9,10 +9,24 @@ class App extends Component {
 	{
 		super(props);
 		this.state = {
-
+			items : [
+				{
+					name : "ABC",
+					level: 0 //0: Small, 1: Medium, 2: High
+				},
+				{
+					name : "DEF",
+					level: 1 //0: Small, 1: Medium, 2: High
+				},
+				{
+					name : "GHJ",
+					level: 2 //0: Small, 1: Medium, 2: High
+				}
+			]
 		}
 	}
 	render() {
+		let items = this.state.items;
 	    return (
 	    <div>
 	    	{ /*TITLE : START*/ }
@@ -28,7 +42,7 @@ class App extends Component {
 	        {/* FORM : END */}
 
 	        {/* LIST : START */}
-	        <List/>
+	        <List items = {items}/>
 	    	{/* LIST : END */}
     	</div>
 	    );
