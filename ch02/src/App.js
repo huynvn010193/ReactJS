@@ -3,27 +3,15 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
+import tasks from './mocks/tasks'
 
 class App extends Component {
 	constructor(props)
 	{
 		super(props);
 		this.state = {
-			items : [
-				{
-					name : "ABC",
-					level: 0 //0: Small, 1: Medium, 2: High
-				},
-				{
-					name : "DEF",
-					level: 1 //0: Small, 1: Medium, 2: High
-				},
-				{
-					name : "GHJ",
-					level: 2 //0: Small, 1: Medium, 2: High
-				}
-			]
-		}
+				items : tasks
+		};
 	}
 	render() {
 		let items = this.state.items;
