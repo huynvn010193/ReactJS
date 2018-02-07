@@ -30,7 +30,7 @@ class App extends Component {
 	        {/* FORM : END */}
 
 	        {/* LIST : START */}
-	        <List items = {items}/>
+	        <List items={items}/>
 	    	{/* LIST : END */}
     	</div>
 	    );

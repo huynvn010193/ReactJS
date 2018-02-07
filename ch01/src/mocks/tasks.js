@@ -1,4 +1,5 @@
-let items = [
+export default {
+	items : [
 		{
 			name : "ABC",
 			level: 0 //0: Small, 1: Medium, 2: High
@@ -10,11 +11,6 @@ let items = [
 		{
 			name : "GHJ",
 			level: 2 //0: Small, 1: Medium, 2: High
-		},
-		{
-			name : "GHJ",
-			level: 2 //0: Small, 1: Medium, 2: High
 		}
 	]
-
-export default items;	
+}
