@@ -11,6 +11,7 @@ class List extends Component {
 	}
 	render() {
 		const items = this.props.items;
+		console.log(items);
 		const eleItem = items.map((item,index) =>
 		{
 			return (

@@ -19,3 +19,5 @@
 	+ componentDidMount(): nhúng thư viên jQuery hay đưa ra những tương tác trên các thành phần này
 		- shouldComponentUpdate(): khi retrun false thì sẽ không dc chạy tiếp
 	npm install jquery --save
+08/02/2018
+	Cài đặt uuid: npm install uuid
