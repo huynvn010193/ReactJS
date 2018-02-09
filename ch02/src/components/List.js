@@ -11,11 +11,10 @@ class List extends Component {
 	}
 	render() {
 		const items = this.props.items;
-		console.log(items);
 		const eleItem = items.map((item,index) =>
 		{
 			return (
-				<Item key = {index}/>
+				<Item key = {index} item={item} index = {index}/>
 			);
 		});
 	    return (
