@@ -5,9 +5,15 @@ class Form extends Component {
 	{
 		super(props);
 		this.state = {
-
+			
 		}
+		this.handleCancel = this.handleCancel.bind(this)
 	}
+	handleCancel()
+	{
+		this.props.onClickCancel();
+	}
+
 	render() {
 	    return (
 	    	<div className="row">
@@ -25,7 +31,7 @@ class Form extends Component {
 			                </select>
 		              	</div>
 		              	<button type="button" className="btn btn-primary">Submit</button>
-		              	<button type="button" className="btn btn-default">Cancel</button>
+		              	<button onClick ={this.handleCancel} type="button" className="btn btn-default">Cancel</button>
 		            </form>
 	          	</div>
         	</div>

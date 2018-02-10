@@ -14,11 +14,18 @@ class App extends Component {
 				iShowForm : false
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
+		this.closeFrom = this.closeFrom.bind(this);
 	}
 	handleToogleForm()
 	{
 		this.setState({
 			iShowForm : !this.state.iShowForm
+		});
+	}
+	closeFrom()
+	{
+		this.setState({
+			iShowForm : false
 		});
 	}
 	render() {
@@ -27,7 +34,7 @@ class App extends Component {
 		let elmForm = null;
 		if(iShowForm)
 		{
-			elmForm = <Form />;
+			elmForm = <Form onClickCancel={this.closeFrom}/>;
 		}
 	    return (
 	    <div>
