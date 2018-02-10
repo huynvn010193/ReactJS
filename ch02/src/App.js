@@ -10,8 +10,9 @@ class App extends Component {
 	{
 		super(props);
 		this.state = {
-				items : tasks,
-				iShowForm : false
+			items : tasks,
+			iShowForm : false,
+			strSearch:'',
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
@@ -43,7 +44,10 @@ class App extends Component {
 	    	{ /*TITLE : END */ }
 
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
-        	<Control onClickAdd = { this.handleToogleForm } iShowForm={iShowForm}/>
+        	<Control
+        		strSearch = {this.state.strSearch}
+        		onClickAdd = { this.handleToogleForm } 
+        		iShowForm={iShowForm}/>
 			{/* CONTROL (SEARCH + SORT + ADD) : END */}
 
         	{/* FORM : START */}
