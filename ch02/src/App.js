@@ -11,21 +11,21 @@ class App extends Component {
 		super(props);
 		this.state = {
 				items : tasks,
-				ishowForm : false
+				iShowForm : false
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 	}
 	handleToogleForm()
 	{
 		this.setState({
-			ishowForm : !this.state.ishowForm
+			iShowForm : !this.state.iShowForm
 		});
 	}
 	render() {
 		let items = this.state.items;
-		let ishowForm = this.state.ishowForm;
+		let iShowForm = this.state.iShowForm;
 		let elmForm = null;
-		if(ishowForm)
+		if(iShowForm)
 		{
 			elmForm = <Form />;
 		}
@@ -36,7 +36,7 @@ class App extends Component {
 	    	{ /*TITLE : END */ }
 
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
-        	<Control onClickAdd = { this.handleToogleForm }/>
+        	<Control onClickAdd = { this.handleToogleForm } iShowForm={iShowForm}/>
 			{/* CONTROL (SEARCH + SORT + ADD) : END */}
 
         	{/* FORM : START */}
