@@ -26,7 +26,10 @@ class App extends Component {
 	}
 	handleSearch(value)
 	{
-		
+		console.log(value);
+		this.setState({
+			strSearch: value
+		});
 	}
 	closeFrom()
 	{
@@ -36,6 +39,7 @@ class App extends Component {
 	}
 
 	render() {
+		//console.log(this.state.strSearch);
 		let items = this.state.items;
 		let iShowForm = this.state.iShowForm;
 		let elmForm = null;

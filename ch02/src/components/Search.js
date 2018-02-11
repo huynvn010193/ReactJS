@@ -10,14 +10,18 @@ class Search extends Component {
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleClear = this.handleClear.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		// props.onClickGo
+
 	}
 	handleSearch()
 	{
-		console.log(this.state.strSearch);	
+		console.log(this.state.strSearch);
+		this.props.onClickGo(this.state.strSearch);
 	}
 	handleClear()
 	{
 		this.setState({strSearch:''});
+		this.props.onClickGo();
 	}
 	handleChange(event)
 	{
