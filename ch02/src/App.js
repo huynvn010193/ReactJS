@@ -16,6 +16,7 @@ class App extends Component {
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
+		this.handleSearch = this.handleSearch.bind(this);
 	}
 	handleToogleForm()
 	{
@@ -23,12 +24,17 @@ class App extends Component {
 			iShowForm : !this.state.iShowForm
 		});
 	}
+	handleSearch(value)
+	{
+		
+	}
 	closeFrom()
 	{
 		this.setState({
 			iShowForm : false
 		});
 	}
+
 	render() {
 		let items = this.state.items;
 		let iShowForm = this.state.iShowForm;
@@ -45,6 +51,7 @@ class App extends Component {
 
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
         	<Control
+        		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		onClickAdd = { this.handleToogleForm } 
         		iShowForm={iShowForm}/>
