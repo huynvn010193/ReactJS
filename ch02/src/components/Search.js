@@ -15,13 +15,12 @@ class Search extends Component {
 	}
 	handleSearch()
 	{
-		console.log(this.state.strSearch);
 		this.props.onClickGo(this.state.strSearch);
 	}
 	handleClear()
 	{
 		this.setState({strSearch:''});
-		this.props.onClickGo();
+		this.props.onClickGo('');
 	}
 	handleChange(event)
 	{
