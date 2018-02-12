@@ -3,7 +3,7 @@ const uuidv4 = require('uuid/v4');
 let items = [
 		{
 			id: uuidv4(),
-			name : "ABC Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c",
+			name : "Abc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c",
 			level: 0 //0: Small, 1: Medium, 2: High
 		},
 		{
@@ -18,7 +18,7 @@ let items = [
 		},
 		{
 			id: uuidv4(),
-			name : "GHJ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c",
+			name : "123 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ea c",
 			level: 2 //0: Small, 1: Medium, 2: High
 		}
 	]

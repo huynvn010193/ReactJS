@@ -38,10 +38,33 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.strSearch);
-		let items = this.state.items;
+		// Vừa vào thì items ban đầu bằng giá trị này
+		let itemsOrigin = this.state.items;
+		let items = [];
 		let iShowForm = this.state.iShowForm;
 		let elmForm = null;
+		const search = this.state.strSearch;
+		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
+		if(search.length > 0)
+		{
+			console.log(search);
+			itemsOrigin.forEach((item) =>{
+				if(item.name.toLowerCase().indexOf(search.toLowerCase()) !== -1)
+				{
+					items.push(item);
+				}
+				else
+				{
+					console.log(item);
+				}
+			});
+		}
+		else
+		{
+			items = itemsOrigin;
+			console.log("DSD");
+		}
+
 		if(iShowForm)
 		{
 			elmForm = <Form onClickCancel={this.closeFrom}/>;
