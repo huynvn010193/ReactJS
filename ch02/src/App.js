@@ -4,6 +4,7 @@ import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
 import tasks from './mocks/tasks'
+import {filter,includes} from 'lodash';
 
 class App extends Component {
 	constructor(props)
@@ -39,13 +40,15 @@ class App extends Component {
 
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
-		let itemsOrigin = this.state.items;
+		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
+		// Viết theo kiểu ES6
+		let itemsOrigin = [...this.state.items];
 		let items = [];
 		let iShowForm = this.state.iShowForm;
 		let elmForm = null;
 		const search = this.state.strSearch;
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
-		if(search.length > 0)
+		/*if(search.length > 0)
 		{
 			console.log(search);
 			itemsOrigin.forEach((item) =>{
@@ -62,9 +65,11 @@ class App extends Component {
 		else
 		{
 			items = itemsOrigin;
-			console.log("DSD");
-		}
-
+		}*/
+		items = filter(itemsOrigin, (item) => {
+			return includes(item.name,search);
+		});
+		itemsOrigin.push("123");
 		if(iShowForm)
 		{
 			elmForm = <Form onClickCancel={this.closeFrom}/>;
