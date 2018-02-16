@@ -14,8 +14,8 @@ class App extends Component {
 			items : tasks,
 			iShowForm : false,
 			strSearch:'',
-			orderBy: 'name',
-			orderDir: 'asc'
+			orderBy: 'NAME',
+			orderDir: 'ASC'
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
@@ -49,7 +49,6 @@ class App extends Component {
 		let elmForm = null;
 		let { orderBy, orderDir,iShowForm } = this.state;
 		const search = this.state.strSearch;
-		console.log(orderBy + '-' + orderDir);
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
 		{
@@ -87,7 +86,7 @@ class App extends Component {
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
         	<Control
         		orderBy = {orderBy}
-        		
+        		orderDir = {orderDir}
         		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		onClickAdd = { this.handleToogleForm } 

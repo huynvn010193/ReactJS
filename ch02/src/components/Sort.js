@@ -9,6 +9,8 @@ class Sort extends Component {
 		}
 	}
 	render() {
+		let {orderBy, orderDir} = this.props;
+		let strSort = orderBy+' - '+orderDir;
 	    return (
 	        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 	            <div className="dropdown">
@@ -22,7 +24,7 @@ class Sort extends Component {
 		                <li><a role="button">Level ASC</a></li>
 		                <li><a role="button">Level DESC</a></li>
 	              	</ul>
-	              	<span className="label label-success label-medium">NAME - DESC</span>
+	              	<span className="label label-success label-medium">{ strSort }</span>
 	            </div>
           	</div>
 	    );

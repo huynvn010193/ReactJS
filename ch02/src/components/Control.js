@@ -20,6 +20,7 @@ class Control extends Component {
 
 	render() {
 		let elmButton = <button onClick = {this.handleAdd} type="button" className="btn btn-info btn-block">Add Task</button>;
+		let {orderBy, orderDir} = this.props;
 		if(this.props.iShowForm)
 		{
 			elmButton = <button onClick = {this.handleAdd} type="button" className="btn btn-success btn-block">Close Task</button>;
@@ -31,7 +32,10 @@ class Control extends Component {
 	          	{/* SEARCH : END */}
 
 	          	{/* SORT : START */}
-	          	<Sort />
+	          	<Sort
+					orderBy = {orderBy}
+					orderDir = {orderDir}
+	          	/>
 	          	{/* SORT : END */}
 
 	          	{/* ADD : START */}
