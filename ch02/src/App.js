@@ -20,6 +20,7 @@ class App extends Component {
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
+		this.handleSortApp = this.handleSortApp.bind(this);
 	}
 	handleToogleForm()
 	{
@@ -37,6 +38,13 @@ class App extends Component {
 	{
 		this.setState({
 			iShowForm : false
+		});
+	}
+	handleSortApp(orderBy,orderDir)
+	{
+		this.setState({
+			orderBy : orderBy,
+			orderDir: orderDir
 		});
 	}
 
@@ -68,10 +76,13 @@ class App extends Component {
 		{
 			items = itemsOrigin;
 		}*/
+		// Search
 		items = filter(itemsOrigin, (item) => {
 			return includes(item.name.toLowerCase(),search.toLowerCase());
 		});
 
+		// Sort
+		
 		itemsOrigin.push("123");
 		if(iShowForm)
 		{
@@ -87,6 +98,7 @@ class App extends Component {
         	<Control
         		orderBy = {orderBy}
         		orderDir = {orderDir}
+        		onClickSort={this.handleSortApp}
         		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		onClickAdd = { this.handleToogleForm } 

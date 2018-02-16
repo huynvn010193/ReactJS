@@ -33,6 +33,7 @@ class Control extends Component {
 
 	          	{/* SORT : START */}
 	          	<Sort
+	          		onClickSort = {this.props.onClickSort}
 					orderBy = {orderBy}
 					orderDir = {orderDir}
 	          	/>
