@@ -4,7 +4,7 @@ import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
 import tasks from './mocks/tasks'
-import {filter,includes} from 'lodash';
+import {filter,includes, orderBy as funcOrderBy} from 'lodash';
 
 class App extends Component {
 	constructor(props)
@@ -14,8 +14,8 @@ class App extends Component {
 			items : tasks,
 			iShowForm : false,
 			strSearch:'',
-			orderBy: 'NAME',
-			orderDir: 'ASC'
+			orderBy: 'name',
+			orderDir: 'asc'
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
@@ -82,8 +82,8 @@ class App extends Component {
 		});
 
 		// Sort
-		
-		itemsOrigin.push("123");
+		items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);
+
 		if(iShowForm)
 		{
 			elmForm = <Form onClickCancel={this.closeFrom}/>;

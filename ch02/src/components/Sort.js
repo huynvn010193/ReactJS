@@ -16,7 +16,7 @@ class Sort extends Component {
 	}
 	render() {
 		let {orderBy, orderDir} = this.props;
-		let strSort = orderBy+' - '+orderDir;
+		let strSort = orderBy.toUpperCase() +' - '+orderDir.toUpperCase();
 	    return (
 	        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 	            <div className="dropdown">
@@ -24,11 +24,11 @@ class Sort extends Component {
 	                	Sort by <span className="caret" />
 	              	</button>
 	              	<ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-		            	<li><a onClick={() => this.handleSort('name','asc')} role="button">Name ASC</a></li>
-		            	<li><a onClick={() => this.handleSort('name','desc')} role="button">Name DESC</a></li>
+		            	<li><a onClick={() => this.handleSort('NAME','ASC')} role="button">Name ASC</a></li>
+		            	<li><a onClick={() => this.handleSort('NAME','DESC')} role="button">Name DESC</a></li>
 		                <li role="separator" className="divider" />
-		                <li><a onClick={() => this.handleSort('level','asc')} role="button">Level ASC</a></li>
-		                <li><a onClick={() => this.handleSort('level','desc')} role="button">Level DESC</a></li>
+		                <li><a onClick={() => this.handleSort('LEVEL','ASC')} role="button">Level ASC</a></li>
+		                <li><a onClick={() => this.handleSort('LEVEL','DESC')} role="button">Level DESC</a></li>
 	              	</ul>
 	              	<span className="label label-success label-medium">{ strSort }</span>
 	            </div>
