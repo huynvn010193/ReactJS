@@ -14,6 +14,8 @@ class App extends Component {
 			items : tasks,
 			iShowForm : false,
 			strSearch:'',
+			orderBy: 'name',
+			orderDir: 'asc'
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
@@ -44,9 +46,10 @@ class App extends Component {
 		// Viết theo kiểu ES6
 		let itemsOrigin = [...this.state.items];
 		let items = [];
-		let iShowForm = this.state.iShowForm;
 		let elmForm = null;
+		let { orderBy, orderDir,iShowForm } = this.state;
 		const search = this.state.strSearch;
+		console.log(orderBy + '-' + orderDir);
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
 		{
@@ -67,8 +70,9 @@ class App extends Component {
 			items = itemsOrigin;
 		}*/
 		items = filter(itemsOrigin, (item) => {
-			return includes(item.name,search);
+			return includes(item.name.toLowerCase(),search.toLowerCase());
 		});
+
 		itemsOrigin.push("123");
 		if(iShowForm)
 		{
@@ -82,6 +86,8 @@ class App extends Component {
 
         	{/* CONTROL (SEARCH + SORT + ADD) : START */}
         	<Control
+        		orderBy = {orderBy}
+        		
         		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		onClickAdd = { this.handleToogleForm } 
