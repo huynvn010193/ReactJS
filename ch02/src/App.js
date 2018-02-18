@@ -47,6 +47,10 @@ class App extends Component {
 			orderDir: orderDir
 		});
 	}
+	handleDelete(id)
+	{
+		console.log(id);
+	}
 
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
@@ -110,7 +114,9 @@ class App extends Component {
 	        {/* FORM : END */}
 
 	        {/* LIST : START */}
-	        <List items={items}/>
+	        <List 
+				onClickDelete = {this.handleDelete}
+	        	items={items}/>
 	    	{/* LIST : END */}
     	</div>
 	    );
