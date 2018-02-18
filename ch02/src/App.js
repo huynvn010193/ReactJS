@@ -4,7 +4,7 @@ import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
 import tasks from './mocks/tasks'
-import {filter,includes, orderBy as funcOrderBy} from 'lodash';
+import {filter,includes, orderBy as funcOrderBy, remove} from 'lodash';
 
 class App extends Component {
 	constructor(props)
@@ -21,6 +21,7 @@ class App extends Component {
 		this.closeFrom = this.closeFrom.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSortApp = this.handleSortApp.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 	handleToogleForm()
 	{
@@ -49,9 +50,14 @@ class App extends Component {
 	}
 	handleDelete(id)
 	{
-		console.log(id);
+		let items = this.state.items
+		remove(items,(item)=>{
+			return item.id === id;
+		});
+		this.setState({
+			items: items
+		});
 	}
-
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
