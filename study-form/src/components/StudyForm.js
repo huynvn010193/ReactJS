@@ -6,7 +6,7 @@ class StudyForm extends Component
 	{
 		super(props);
 		this.state = {
-
+			
 		};
 	}
 	render() {
@@ -35,9 +35,23 @@ class StudyForm extends Component
 								<div className="radio">
 									<label>
 										<input type="radio" name="dsd" id="input" defaultValue />
+										Học viên cũ
+									</label>
+								</div>
+								<div className="radio">
+									<label>
+										<input type="radio" name="dsd" id="input" defaultValue />
+										Học sinh sinh viên
+									</label>
+								</div>
+								<div className="radio">
+									<label>
+										<input type="radio" name="dsd" id="input" defaultValue />
+										Người khuyết tật
 									</label>
 								</div>
 							</div>
+							<button type="submit" className="btn btn-primary">Submit</button>
 						</form>
 					</div>
 				</div>
