@@ -6,9 +6,20 @@ class StudyForm extends Component
 	{
 		super(props);
 		this.state = {
-			
+			fullname:'',
 		};
+		this.handleChange = this.handleChange.bind(this);
+    	this.handleSubmit = this.handleSubmit.bind(this);
 	}
+	handleChange(event) {
+    	this.setState({fullname: event.target.value});
+  	}
+
+  	handleSubmit(event) {
+    	alert('A name was submitted: ' + this.state.fullname);
+    	event.preventDefault();
+  	}
+
 	render() {
 		return (
 			<div className="row">
@@ -17,11 +28,11 @@ class StudyForm extends Component
 						<h3 className="panel-title">Study Form</h3>
 					</div>
 					<div className="panel-body">
-						<form action="#" method="POST" role="form">
+						<form onSubmit={this.handleSubmit} role="form">
 							<legend>Form Register</legend>
 							<div className="form-group">
 								<label htmlFor="true">Họ tên</label>
-								<input type="text" className="form-control" placeholder="Fullname"/>
+								<input value={this.state.fullname} onChange={this.handleChange} type="text" className="form-control" placeholder="Fullname"/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="true">Khóa học</label>
