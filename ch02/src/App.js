@@ -58,6 +58,10 @@ class App extends Component {
 			items: items
 		});
 	}
+	handleSubmit_App(item)
+	{
+		console.log(item);
+	}
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
@@ -96,7 +100,7 @@ class App extends Component {
 
 		if(iShowForm)
 		{
-			elmForm = <Form onClickCancel={this.closeFrom}/>;
+			elmForm = <Form onClickSubmit={this.handleSubmit_App} onClickCancel={this.closeFrom}/>;
 		}
 	    return (
 	    <div>
