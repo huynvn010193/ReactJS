@@ -7,12 +7,20 @@ class StudyForm extends Component
 		super(props);
 		this.state = {
 			fullname:'',
+			course: 'php'
 		};
 		this.handleChange = this.handleChange.bind(this);
     	this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleChange(event) {
     	this.setState({fullname: event.target.value});
+    	const target = event.target; // Có thể là input hoặc có thể là select box
+	    const value = target.value;
+	    const name = target.name;
+
+	    this.setState({
+	      [name]: value
+	    });
   	}
 
   	handleSubmit(event) {
@@ -28,7 +36,7 @@ class StudyForm extends Component
 						<h3 className="panel-title">Study Form</h3>
 					</div>
 					<div className="panel-body">
-						<form onSubmit={this.handleSubmit} role="form">
+						<form onSubmit={this.handleSubmit}>
 							<legend>Form Register</legend>
 							<div className="form-group">
 								<label htmlFor="true">Họ tên</label>
@@ -36,9 +44,11 @@ class StudyForm extends Component
 							</div>
 							<div className="form-group">
 								<label htmlFor="true">Khóa học</label>
-								<select name="true" id="input" className="form-control" required="required">
+								<select value={this.state.course} onChange={this.handleChange} name="course" id="input" className="form-control" required="required">
 									<option value="angular">Angular</option>
 									<option value="react">ReactJS</option>
+									<option value="nodeJS">NodeJS</option>
+									<option value="php">PHP</option>
 								</select>
 							</div>
 							<div className="form-group">
