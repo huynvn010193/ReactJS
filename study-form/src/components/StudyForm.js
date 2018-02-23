@@ -8,7 +8,8 @@ class StudyForm extends Component
 		this.state = {
 			fullname:'',
 			course: 'php',
-			object: 'nkt'
+			object: 'nkt',
+			sendMail: false
 		};
 		this.handleChange = this.handleChange.bind(this);
     	this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,12 +17,11 @@ class StudyForm extends Component
 
 	handleChange(event) {
     	const target = event.target; // Có thể là input hoặc có thể là selectbox
-	    const value = target.value;
+	    const value = target.type === 'checkbox' ? target.checked : target.value;
 	    const name = target.name;
 	    this.setState({
 	    	[name]: value
-	    });
-	    
+	    });	    
   	}
 
   	handleSubmit(event) {
@@ -72,6 +72,11 @@ class StudyForm extends Component
 									<label>
 										<input onChange={this.handleChange} checked={this.state.object === 'nkt'} value="nkt" type="radio" name="object" />
 										Người khuyết tật
+									</label>
+								</div>
+								<div className="checkbox">
+									<label>
+										<input onChange={this.handleChange} checked={this.state.sendMail} name="sendMail" type="checkbox" />SendMail
 									</label>
 								</div>
 							</div>
