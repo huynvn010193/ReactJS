@@ -8,13 +8,21 @@ class List extends Component {
 		this.state = {
 
 		}
+		// props.onClickEdit = App.handleEdit_App
+
 	}
 	render() {
 		const items = this.props.items;
 		const eleItem = items.map((item,index) =>
 		{
 			return (
-				<Item onClickDelete = {this.props.onClickDelete} key = {index} item={item} index = {index}/>
+				<Item 
+					onClickEdit = {this.props.onClickEdit}
+					onClickDelete = {this.props.onClickDelete} 
+					key = {index} 
+					item={item} 
+					index = {index}
+				/>
 			);
 		});
 	    return (

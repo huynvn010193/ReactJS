@@ -16,7 +16,8 @@ class App extends Component {
 			iShowForm : false,
 			strSearch:'',
 			orderBy: 'name',
-			orderDir: 'asc'
+			orderDir: 'asc',
+			itemSelected: null
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
 		this.closeFrom = this.closeFrom.bind(this);
@@ -24,6 +25,7 @@ class App extends Component {
 		this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.handleSubmit_App = this.handleSubmit_App.bind(this);
+		this.handleEdit_App = this.handleEdit_App.bind(this);
 	}
 	handleToogleForm()
 	{
@@ -75,6 +77,13 @@ class App extends Component {
 		});
 
 	}
+	handleEdit_App(item)
+	{
+		this.setState({
+			itemSelected: item,
+			iShowForm : true
+		});
+	}	
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
@@ -82,7 +91,7 @@ class App extends Component {
 		let itemsOrigin = [...this.state.items];
 		let items = [];
 		let elmForm = null;
-		let { orderBy, orderDir,iShowForm } = this.state;
+		let { orderBy, orderDir,iShowForm,itemSelected } = this.state;
 		const search = this.state.strSearch;
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
@@ -113,7 +122,10 @@ class App extends Component {
 
 		if(iShowForm)
 		{
-			elmForm = <Form onClickSubmit={this.handleSubmit_App} onClickCancel={this.closeFrom}/>;
+			elmForm = 	<Form 
+							itemSelected = {itemSelected}
+							onClickSubmit={this.handleSubmit_App} 
+							onClickCancel={this.closeFrom}/>;
 		}
 	    return (
 	    <div>
@@ -138,6 +150,7 @@ class App extends Component {
 
 	        {/* LIST : START */}
 	        <List 
+	        	onClickEdit = {this.handleEdit_App}
 				onClickDelete = {this.handleDelete}
 	        	items={items}/>
 	    	{/* LIST : END */}
