@@ -5,6 +5,7 @@ import Form from './components/Form';
 import List from './components/List';
 import tasks from './mocks/tasks'
 import {filter,includes, orderBy as funcOrderBy, remove} from 'lodash';
+const uuidv4 = require('uuid/v4');
 
 class App extends Component {
 	constructor(props)
@@ -22,6 +23,7 @@ class App extends Component {
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
+		this.handleSubmit_App = this.handleSubmit_App.bind(this);
 	}
 	handleToogleForm()
 	{
@@ -60,7 +62,18 @@ class App extends Component {
 	}
 	handleSubmit_App(item)
 	{
-		console.log(item);
+		// Lấy ra danh sách đã tồn tại
+		let {items} = this.state;
+		items.push({
+			id: uuidv4(),
+			name : item.name,
+			level: +item.level
+		});
+		this.setState({
+			items: items,
+			iShowForm : false
+		});
+
 	}
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
