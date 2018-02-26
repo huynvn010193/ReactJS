@@ -38,6 +38,14 @@ class Form extends Component {
   	}
 
 	render() {
+		let item = this.props.itemSelected;
+		let name = this.state.taskname;
+		let level = this.state.tasklevel;
+		if(item != "")
+		{
+			name = item.name;
+			level = item.level;
+		}
 	    return (
 	    	<div className="row">
 	          	<div className="col-md-offset-7 col-md-5">
@@ -45,12 +53,12 @@ class Form extends Component {
 
 		              	<div className="form-group">
 			                <label className="sr-only" htmlFor="true">label</label>
-			                <input value={this.state.taskname} onChange={this.handleChange} name="taskname" type="text" className="form-control" placeholder="Task Name"/>
+			                <input value={name} onChange={this.handleChange} name="taskname" type="text" className="form-control" placeholder="Task Name"/>
 		              	</div>
 
 		              	<div className="form-group">
 			                <label className="sr-only" htmlFor="true">label</label>
-			                <select value={this.state.tasklevel} onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
+			                <select value={level} onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
 			                  	<option value={0}>Small</option>
 			                  	<option value={1}>Medium</option>
 			                  	<option value={2}>High</option>
