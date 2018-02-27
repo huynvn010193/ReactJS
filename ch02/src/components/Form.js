@@ -5,14 +5,27 @@ class Form extends Component {
 	{
 		super(props);
 		this.state = {
+			taskid: '',
 			taskname : '',
 			tasklevel: 0
 		}
+
+		let item = this.props.itemSelected;
+		if(item.id !== "")
+		{
+			this.setState({
+				taskid : item.id,
+				taskname : item.name,
+				level : item.level
+			});
+		}
+
 		this.handleCancel = this.handleCancel.bind(this);
 		this.handleChange = this.handleChange.bind(this);
     	this.handleSubmit = this.handleSubmit.bind(this);
     	console.log(this.props.itemSelected);
 	}
+
 	handleCancel()
 	{
 		this.props.onClickCancel();
@@ -28,7 +41,6 @@ class Form extends Component {
   	}
 
   	handleSubmit(event) {
-    	console.log(this.state);
     	let item = {
     		name: this.state.taskname,
     		level: this.state.tasklevel
@@ -38,14 +50,6 @@ class Form extends Component {
   	}
 
 	render() {
-		let item = this.props.itemSelected;
-		let name = this.state.taskname;
-		let level = this.state.tasklevel;
-		if(item != "")
-		{
-			name = item.name;
-			level = item.level;
-		}
 	    return (
 	    	<div className="row">
 	          	<div className="col-md-offset-7 col-md-5">
@@ -53,12 +57,12 @@ class Form extends Component {
 
 		              	<div className="form-group">
 			                <label className="sr-only" htmlFor="true">label</label>
-			                <input value={name} onChange={this.handleChange} name="taskname" type="text" className="form-control" placeholder="Task Name"/>
+			                <input value={ this.state.taskname } onChange={this.handleChange} name="taskname" type="text" className="form-control" placeholder="Task Name"/>
 		              	</div>
 
 		              	<div className="form-group">
 			                <label className="sr-only" htmlFor="true">label</label>
-			                <select value={level} onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
+			                <select value={this.state.tasklevel } onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
 			                  	<option value={0}>Small</option>
 			                  	<option value={1}>Medium</option>
 			                  	<option value={2}>High</option>
