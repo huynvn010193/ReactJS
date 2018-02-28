@@ -9,7 +9,13 @@ class Form extends Component {
 			taskname : '',
 			tasklevel: 0
 		}
-
+		
+		this.handleCancel = this.handleCancel.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+    	this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	componentWillMount()
+	{
 		let item = this.props.itemSelected;
 		if(item.id !== "")
 		{
@@ -19,11 +25,6 @@ class Form extends Component {
 				level : item.level
 			});
 		}
-
-		this.handleCancel = this.handleCancel.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-    	this.handleSubmit = this.handleSubmit.bind(this);
-    	console.log(this.props.itemSelected);
 	}
 
 	handleCancel()
@@ -62,7 +63,7 @@ class Form extends Component {
 
 		              	<div className="form-group">
 			                <label className="sr-only" htmlFor="true">label</label>
-			                <select value={this.state.tasklevel } onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
+			                <select value={ this.state.tasklevel } onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
 			                  	<option value={0}>Small</option>
 			                  	<option value={1}>Medium</option>
 			                  	<option value={2}>High</option>
