@@ -3,8 +3,8 @@ import Title from './components/Title';
 import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
-import tasks from './mocks/tasks'
-import {filter,includes, orderBy as funcOrderBy, remove} from 'lodash';
+//import tasks from './mocks/tasks'
+import {filter,includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
 const uuidv4 = require('uuid/v4');
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
 	{
 		super(props);
 		this.state = {
-			items : tasks,
+			items : "",
 			iShowForm : false,
 			strSearch:'',
 			orderBy: 'name',
@@ -27,10 +27,19 @@ class App extends Component {
 		this.handleSubmit_App = this.handleSubmit_App.bind(this);
 		this.handleEdit_App = this.handleEdit_App.bind(this);
 	}
+	componentWillMount()
+	{
+		let items = JSON.parse(localStorage.getItem('task'));
+		this.setState({
+			items : items,
+		});
+	}
+
 	handleToogleForm()
 	{
 		this.setState({
-			iShowForm : !this.state.iShowForm
+			iShowForm : !this.state.iShowForm,
+			itemSelected: null
 		});
 	}
 	handleSearch(value)
@@ -61,13 +70,25 @@ class App extends Component {
 		this.setState({
 			items: items
 		});
+		localStorage.setItem('task',JSON.stringify(items));
 	}
 	handleSubmit_App(item)
 	{
 		// Lấy ra danh sách đã tồn tại
 		let {items} = this.state;
+		let id = null;
+		if(item !== null)
+		{
+			items = reject(items, {id: item.id});
+			id = item.id;
+		}
+		else
+		{
+			id = uuidv4();
+		}
+
 		items.push({
-			id: uuidv4(),
+			id: id,
 			name : item.name,
 			level: +item.level
 		});
@@ -75,6 +96,7 @@ class App extends Component {
 			items: items,
 			iShowForm : false
 		});
+		localStorage.setItem('task',JSON.stringify(items));
 
 	}
 	handleEdit_App(item)

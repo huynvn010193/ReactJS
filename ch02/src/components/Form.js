@@ -17,7 +17,18 @@ class Form extends Component {
 	componentWillMount()
 	{
 		let item = this.props.itemSelected;
-		if(item.id !== "")
+		this.updateItem(item);
+	}
+
+	componentWillReceiveProps(nextprops)
+	{
+		let item = nextprops.itemSelected;
+		this.updateItem(item);
+	}
+
+	updateItem(item)
+	{
+		if(item !== null)
 		{
 			this.setState({
 				taskid : item.id,
@@ -43,6 +54,7 @@ class Form extends Component {
 
   	handleSubmit(event) {
     	let item = {
+    		id : this.state.taskid,
     		name: this.state.taskname,
     		level: this.state.tasklevel
     	}
