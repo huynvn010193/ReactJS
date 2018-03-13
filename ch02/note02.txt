@@ -1,0 +1,15 @@
++ App
+	Title
+	Control
+		Search
+		Sort
+		Add
+	Form
+	List
+		Item
+		
+	=>  Redux: 
+			store
+			reducer
+			action
+			state

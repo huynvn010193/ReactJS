@@ -29,7 +29,7 @@ class App extends Component {
 	}
 	componentWillMount()
 	{
-		let items = JSON.parse(localStorage.getItem('task'));
+		let items = JSON.parse(localStorage.getItem('task')) || [];
 		this.setState({
 			items : items,
 		});
@@ -110,7 +110,7 @@ class App extends Component {
 		// Vừa vào thì items ban đầu bằng giá trị này
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
 		// Viết theo kiểu ES6
-		let itemsOrigin = [...this.state.items];
+		let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
 		let items = [];
 		let elmForm = null;
 		let { orderBy, orderDir,iShowForm,itemSelected } = this.state;
