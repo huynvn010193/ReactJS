@@ -1,8 +1,9 @@
 import { createStore } from 'redux'
+import { actCloseForm,actToggleForm,actOpenForm } from './actions/index'
 
 let defaultState = {
 	items : [],
-	iShowForm : false,
+	iShowForm : true,
 	strSearch:'',
 	orderBy: 'name',
 	orderDir: 'asc',
@@ -13,21 +14,35 @@ let appReducers = (state = defaultState,action) => {
 	switch(action.type)
 	{
 		case 'CLOSE_FORM':
-			console.log("CLOSE_FORM",state);
-			break;
+			//console.log("CLOSE_FORM",state);
+			state.iShowForm = false;
+			return state;
+		case 'OPEN_FORM':
+			//console.log("CLOSE_FORM",state);
+			state.iShowForm = true;
+			return state;
+		case 'TOGGLE_FORM':
+			//console.log("CLOSE_FORM",state);
+			state.iShowForm = !state.iShowForm;
+			return state;
 		default:
 			return state;
 	}
-	return state;
 }
-
-
 const  store = createStore(appReducers);
+console.log('Init: ', store.getState());
 
-console.log(store.getState());
+// CLOSE FORM
+store.dispatch(actCloseForm());
+console.log('CLOSE_FORM: ', store.getState());
 
-let action = {type: "CLOSE_FORM"};
-store.dispatch(action);
+// OPEN_FORM
+store.dispatch(actOpenForm());
+console.log('OPEN_FORM: ', store.getState());
+
+// TOGGLE_FORM
+store.dispatch(actToggleForm());
+console.log('TOGGLE_FORM: ', store.getState());
 
 export default store;
 
