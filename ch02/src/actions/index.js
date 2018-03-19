@@ -1,30 +1,31 @@
+import * as types from './../constants/ActionType';
+
 export const actCloseForm = () => 
 {
 	return {
-		type : 'CLOSE_FORM'
+		type : types.CLOSE_FORM
 	}
 }
 
 export const actOpenForm = () => 
 {
 	return {
-		type : 'OPEN_FORM'
+		type : types.OPEN_FORM
 	}
 }
 
 export const actToggleForm = () => 
 {
 	return {
-		type : 'TOGGLE_FORM'
+		type : types.TOGGLE_FORM
 	}
 }
 
 export const actSort = (orderBy,orderDir) => 
 {
 	return {
-		type: 'SORT_ITEM',
+		type: types.SORT_ITEM,
 		orderBy : orderBy,
 		orderDir: orderDir
-		
 	}
 }
