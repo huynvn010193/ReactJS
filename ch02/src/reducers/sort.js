@@ -3,7 +3,7 @@ const defaultState = {
 	orderDir : 'asc'
 }
 
-const sortReducer = (state = defaultState,action) => {
+const sort = (state = defaultState,action) => {
 	// Viết tắt: action.orderBy,action.orderDir => {orderBy, orderDir} = action;
 	// Cách viết thay đổi vị trí nhớ
 	let {orderBy,orderDir} = action;
@@ -16,4 +16,4 @@ const sortReducer = (state = defaultState,action) => {
 	}
 }
 
-export default sortReducer;
+export default sort;
