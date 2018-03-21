@@ -13,3 +13,9 @@
 			reducer
 			action
 			state
+21/03/2018
+B1: cài đặt React with Redux
+	- CMD: npm install --save react-redux
+B2: index.js:
+	- import { Provider } from 'react-redux';
+	- Provider: Cung cấp dữ liệu cho app
