@@ -13,6 +13,7 @@ class List extends Component {
 
 	}
 	render() {
+		console.log(this.props.tasks);
 		const items = this.props.items;
 		const eleItem = items.map((item,index) =>
 		{
@@ -47,4 +48,13 @@ class List extends Component {
 	}
 }
 
-export default connect(null,null) (List);
+/*Tách dụng: lấy những cái state của tk Store => trả về những thuộc tính, props của tk List
+	state: truyền từ store.js qua.
+*/
+const mapStateToProps = state => {
+	return {
+		tasks : state.items
+	}
+	
+}	
+export default connect(mapStateToProps,null) (List);

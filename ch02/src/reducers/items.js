@@ -1,7 +1,7 @@
 const defaultState = [
-	{id:"A1",name:"Coding",level:0}
-	{id:"A2",name:"Football",level:1}
-	{id:"A3",name:"Watch TC",level:2}
+	{id:"A1",name:"Coding",level:0},
+	{id:"A2",name:"Football",level:1},
+	{id:"A3",name:"Watch TV",level:2}
 ];
 
 const items = (state = defaultState,action) => {
