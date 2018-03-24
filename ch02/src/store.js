@@ -3,7 +3,7 @@ import appReducers  from './reducers/index'
 // import { actCloseForm,actToggleForm,actOpenForm,actSort } from './actions/index'
 const store = createStore(
    appReducers, /* preloadedState, */
-  		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
  );
 
 // subcribe(): Khi store thay đổi thì sẽ thực hiện hành động.
@@ -26,6 +26,7 @@ store.subscribe(() => {
 // // CHANGE_SORT
 // store.dispatch(actSort("level","desc"));
 // console.log('SORT_ITEM: ', store.getState());
+
 
 
 

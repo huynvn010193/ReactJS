@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Item from './Item';
 
 class List extends Component {
@@ -46,4 +47,4 @@ class List extends Component {
 	}
 }
 
-export default List;
+export default connect(null,null) (List);
