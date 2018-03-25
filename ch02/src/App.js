@@ -21,7 +21,7 @@ class App extends Component {
 			itemSelected: null
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
-		this.closeFrom = this.closeFrom.bind(this);
+		this.closeForm = this.closeForm.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
@@ -49,7 +49,7 @@ class App extends Component {
 			strSearch: value
 		});
 	}
-	closeFrom()
+	closeForm()
 	{
 		this.setState({
 			iShowForm : false
@@ -148,7 +148,7 @@ class App extends Component {
 			elmForm = 	<Form 
 							itemSelected = {itemSelected}
 							onClickSubmit={this.handleSubmit_App} 
-							onClickCancel={this.closeFrom}/>;
+							onClickCancel={this.closeForm}/>;
 		}
 	    return (
 	    <div>
@@ -164,7 +164,7 @@ class App extends Component {
         		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		onClickAdd = { this.handleToogleForm } 
-        		iShowForm={iShowForm}/>
+        	/>
 			{/* CONTROL (SEARCH + SORT + ADD) : END */}
 
         	{/* FORM : START */}

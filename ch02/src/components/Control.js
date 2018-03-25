@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Sort from './Sort';
+import ToggleForm from './ToggleForm';
 
 class Control extends Component {
 	constructor(props)
@@ -19,12 +20,7 @@ class Control extends Component {
 	}
 
 	render() {
-		let elmButton = <button onClick = {this.handleAdd} type="button" className="btn btn-info btn-block">Add Task</button>;
 		let {orderBy, orderDir} = this.props;
-		if(this.props.iShowForm)
-		{
-			elmButton = <button onClick = {this.handleAdd} type="button" className="btn btn-success btn-block">Close Task</button>;
-		}
 	    return (
 	        <div className="row">
 	          	{/* SEARCH : START */}
@@ -40,9 +36,7 @@ class Control extends Component {
 	          	{/* SORT : END */}
 
 	          	{/* ADD : START */}
-	          	<div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-	            	{ elmButton }
-	          	</div>
+	          	<ToggleForm />
 	          	{/* ADD : END */}
         	</div>
         );
