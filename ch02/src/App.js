@@ -4,6 +4,7 @@ import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
 
+
 //import tasks from './mocks/tasks'
 import {filter,includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
 const uuidv4 = require('uuid/v4');
@@ -113,7 +114,7 @@ class App extends Component {
 		// Viết theo kiểu ES6
 		let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
 		let items = [];
-		let elmForm = null;
+		
 		let { orderBy, orderDir,iShowForm,itemSelected } = this.state;
 		const search = this.state.strSearch;
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
@@ -143,13 +144,6 @@ class App extends Component {
 		// Sort
 		items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);
 
-		if(iShowForm)
-		{
-			elmForm = 	<Form 
-							itemSelected = {itemSelected}
-							onClickSubmit={this.handleSubmit_App} 
-							onClickCancel={this.closeForm}/>;
-		}
 	    return (
 	    <div>
 	    	{ /*TITLE : START*/ }
@@ -167,9 +161,10 @@ class App extends Component {
         	/>
 			{/* CONTROL (SEARCH + SORT + ADD) : END */}
 
-        	{/* FORM : START */}
-	        { elmForm }
-	        {/* FORM : END */}
+        	<Form 
+				itemSelected = {itemSelected}
+				onClickSubmit={this.handleSubmit_App} 
+				onClickCancel={this.closeForm}/>;
 
 	        {/* LIST : START */}
 	        <List 
