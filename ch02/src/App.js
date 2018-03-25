@@ -175,7 +175,7 @@ class App extends Component {
 	        <List 
 	        	onClickEdit = {this.handleEdit_App}
 				onClickDelete = {this.handleDelete}
-	        	items={items}/>
+	        />
 	    	{/* LIST : END */}
     	</div>
 	    );
