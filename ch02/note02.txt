@@ -19,3 +19,9 @@ B1: cài đặt React with Redux
 B2: index.js:
 	- import { Provider } from 'react-redux';
 	- Provider: Cung cấp dữ liệu cho app
+25/03/2018
+	_ Để ứng dụng được Redux trong ReactJS: 
+		+ Phải đăng ký Provider cho tk App, App chứa List => List có thể kết nối vs Store lấy ra được cái props trong này.
+		+ Để List connect vs store => import { connect } from 'react-redux';
+		+ Connect gồm 2 tham số: connect(mapStateToProps,null)
+		+ List lấy ra sẽ là cái props của List
