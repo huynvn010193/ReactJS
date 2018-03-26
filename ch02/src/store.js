@@ -6,6 +6,9 @@ const store = createStore(
   		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
  );
 
+/*store.dispatch({type: "TOGGLE_FORM"});
+console.log("TOGGLE_FORM", store.getState());*/
+
 // subcribe(): Khi store thay đổi thì sẽ thực hiện hành động.
 store.subscribe(() => {
 	//console.log(store.getState())

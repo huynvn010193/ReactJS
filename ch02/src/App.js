@@ -113,9 +113,9 @@ class App extends Component {
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
 		// Viết theo kiểu ES6
 		let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
-		let items = [];
+		//let items = [];
 		
-		let { orderBy, orderDir,iShowForm,itemSelected } = this.state;
+		let { orderBy, orderDir,itemSelected } = this.state;
 		const search = this.state.strSearch;
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
@@ -137,12 +137,13 @@ class App extends Component {
 			items = itemsOrigin;
 		}*/
 		// Search
-		items = filter(itemsOrigin, (item) => {
+		
+		/*items = filter(itemsOrigin, (item) => {
 			return includes(item.name.toLowerCase(),search.toLowerCase());
 		});
 
 		// Sort
-		items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);
+		items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);*/
 
 	    return (
 	    <div>

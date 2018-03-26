@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { actToggleForm } from './../actions/index'
 
 class ToggleForm extends Component {
-	constructor(props)
-	{
-		super(props);
-		this.state = {
-
-		}
-		//props.onClickSearchGo
-		this.handleAdd = this.handleAdd.bind(this);
-	}
+	
 	// isShowForm = false => Button Open
 	// isShowForm = true => Button Close Form
+	// bỏ constructor ghi lại theo arrow function
 
-	handleAdd()
-	{
-		this.props.onClickAdd();
+	toggleForm = () => {
+		this.props.handleToggle(); // => Gọi dispatch với giá trị này
 	}
 	render() {
 		const { isShowForm } = this.props;
@@ -29,7 +22,7 @@ class ToggleForm extends Component {
 		}
 	    return (
           	<div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-            	<button onClick = {this.handleAdd} type="button" className={`btn ${btnClass} btn-block`}>{btnName}</button>;
+            	<button onClick = {this.toggleForm} type="button" className={`btn ${btnClass} btn-block`}>{btnName}</button>;
           	</div>
         );
 	}
@@ -39,5 +32,14 @@ const mapStateToProps = state => {
 	return {
 		isShowForm : state.isShowForm
 	}
-}	
-export default connect(mapStateToProps,null) (ToggleForm);
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		handleToggle : () => {
+			dispatch(actToggleForm());
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (ToggleForm);

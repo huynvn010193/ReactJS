@@ -65,19 +65,20 @@ class Form extends Component {
 
 	render() {
 		let { isShowForm } = this.props;
-		if(isShowForm == false) return null;
+		if(isShowForm === false) return null;
+		
 	    return (
 	    	<div className="row">
 	          	<div className="col-md-offset-7 col-md-5">
 		            <form onSubmit={this.handleSubmit} className="form-inline">
 
 		              	<div className="form-group">
-			                <label className="sr-only" htmlFor="true">label</label>
+			                <label className="sr-only" htmlFor="taskname">label</label>
 			                <input value={ this.state.taskname } onChange={this.handleChange} name="taskname" type="text" className="form-control" placeholder="Task Name"/>
 		              	</div>
 
 		              	<div className="form-group">
-			                <label className="sr-only" htmlFor="true">label</label>
+			                <label className="sr-only" htmlFor="tasklevel">label</label>
 			                <select value={ this.state.tasklevel } onChange={this.handleChange} name="tasklevel" className="form-control" required="required" ref="task_level">Small
 			                  	<option value={0}>Small</option>
 			                  	<option value={1}>Medium</option>
