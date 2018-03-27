@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import appReducers  from './reducers/index'
-// import { actCloseForm,actToggleForm,actOpenForm,actSort } from './actions/index'
+//import { actCloseForm,actToggleForm,actOpenForm,actSort } from './actions/index'
 const store = createStore(
    appReducers, /* preloadedState, */
   		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -14,9 +14,9 @@ store.subscribe(() => {
 	//console.log(store.getState())
 });
 
-// // CLOSE FORM
-// store.dispatch(actCloseForm());
-// console.log('CLOSE_FORM: ', store.getState());
+// CLOSE FORM
+/*store.dispatch(actCloseForm());
+console.log('CLOSE_FORM: ', store.getState());*/
 
 // // TOGGLE_FORM
 // store.dispatch(actToggleForm());

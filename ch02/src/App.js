@@ -22,7 +22,7 @@ class App extends Component {
 			itemSelected: null
 		};
 		this.handleToogleForm = this.handleToogleForm.bind(this);
-		this.closeForm = this.closeForm.bind(this);
+		//this.closeForm = this.closeForm.bind(this);
 		this.handleSearch = this.handleSearch.bind(this);
 		this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
@@ -50,12 +50,12 @@ class App extends Component {
 			strSearch: value
 		});
 	}
-	closeForm()
+	/*closeForm()
 	{
 		this.setState({
 			iShowForm : false
 		});
-	}
+	}*/
 	handleSortApp(orderBy,orderDir)
 	{
 		this.setState({
@@ -158,14 +158,15 @@ class App extends Component {
         		onClickSort={this.handleSortApp}
         		onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
-        		onClickAdd = { this.handleToogleForm } 
+        		
         	/>
 			{/* CONTROL (SEARCH + SORT + ADD) : END */}
 
         	<Form 
 				itemSelected = {itemSelected}
 				onClickSubmit={this.handleSubmit_App} 
-				onClickCancel={this.closeForm}/>;
+				
+				/>;
 
 	        {/* LIST : START */}
 	        <List 
