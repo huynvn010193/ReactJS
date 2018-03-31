@@ -6,16 +6,13 @@ const isShowForm = (state = defaultState,action) => {
 	{
 		case types.CLOSE_FORM:
 			//console.log("CLOSE_FORM",state);
-			state = false;
-			return state;
+			return false;
 		case types.OPEN_FORM:
 			//console.log("CLOSE_FORM",state);
-			state = true;
-			return state;
+			return true;
 		case types.TOGGLE_FORM:
 			//console.log("CLOSE_FORM",state);
-			state = !state;
-			return state;
+			return !state;
 		default:
 			return state;
 	}
