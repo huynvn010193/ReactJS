@@ -13,7 +13,8 @@ class List extends Component {
 
 	}
 	render() {
-		const items = this.props.items;
+		const { items, search } = this.props;
+		console.log("search",search);
 		let eleItem = <tr><th colSpan={4}>Không có công việc</th></tr>;
 		if(items.length > 0)
 		{
@@ -22,9 +23,9 @@ class List extends Component {
 				return (
 					<Item 
 						onClickEdit = {this.props.onClickEdit}
-						onClickDelete = {this.props.onClickDelete} 
-						key = {index} 
-						item={item} 
+						onClickDelete = {this.props.onClickDelete}
+						key = {index}
+						item={item}
 						index = {index}
 					/>
 				);
@@ -57,8 +58,8 @@ class List extends Component {
 */
 const mapStateToProps = state => {
 	return {
-		items : state.items
+		items : state.items,
+		search: state.search
 	}
-	
 }	
 export default connect(mapStateToProps,null) (List);
