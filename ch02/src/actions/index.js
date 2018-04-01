@@ -30,7 +30,7 @@ export const actSort = (orderBy,orderDir) =>
 	}
 }
 
-export const actSearch = (search) => 
+export const actChangeSearch = (search) => 
 {
 	return {
 		type: types.CHANGE_SEARCH,

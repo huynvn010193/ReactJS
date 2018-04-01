@@ -117,6 +117,7 @@ class App extends Component {
 		
 		let { orderBy, orderDir,itemSelected } = this.state;
 		const search = this.state.strSearch;
+		
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
 		{

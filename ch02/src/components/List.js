@@ -68,5 +68,7 @@ const mapStateToProps = state => {
 		items : state.items,
 		search: state.search
 	}
-}	
+}
+
+
 export default connect(mapStateToProps,null) (List);
