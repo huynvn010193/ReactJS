@@ -21,35 +21,36 @@ class App extends Component {
 			orderDir: 'asc',
 			itemSelected: null
 		};
-		this.handleToogleForm = this.handleToogleForm.bind(this);
+		//this.handleToogleForm = this.handleToogleForm.bind(this);
 		//this.closeForm = this.closeForm.bind(this);
-		this.handleSearch = this.handleSearch.bind(this);
+		//this.handleSearch = this.handleSearch.bind(this);
 		this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.handleSubmit_App = this.handleSubmit_App.bind(this);
 		this.handleEdit_App = this.handleEdit_App.bind(this);
 	}
+	/*// Lấy từ local store cập nhật lại cho Item
 	componentWillMount()
 	{
 		let items = JSON.parse(localStorage.getItem('task')) || [];
 		this.setState({
 			items : items,
 		});
-	}
+	}*/
 
-	handleToogleForm()
+	/*handleToogleForm()
 	{
 		this.setState({
 			iShowForm : !this.state.iShowForm,
 			itemSelected: null
 		});
-	}
-	handleSearch(value)
+	}*/
+	/*handleSearch(value)
 	{
 		this.setState({
 			strSearch: value
 		});
-	}
+	}*/
 	/*closeForm()
 	{
 		this.setState({
@@ -157,7 +158,7 @@ class App extends Component {
         		orderBy = {orderBy}
         		orderDir = {orderDir}
         		onClickSort={this.handleSortApp}
-        		onClickSearchGo = {this.handleSearch}
+        		//onClickSearchGo = {this.handleSearch}
         		strSearch = {this.state.strSearch}
         		
         	/>

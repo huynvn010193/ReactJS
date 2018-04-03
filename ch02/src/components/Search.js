@@ -6,7 +6,9 @@ class Search extends Component {
 	constructor(props)
 	{
 		super(props);
+
 		this.state = {
+			// Nhận giá trị nhập vào từ input thông qua onChange
 			strSearch : ''
 		}
 		this.handleSearch = this.handleSearch.bind(this);
@@ -22,9 +24,9 @@ class Search extends Component {
 	}
 	handleClear()
 	{
-		//this.setState({strSearch:''});
+		this.setState({strSearch:''});
 		//this.props.onClickGo('');
-		this.props.clearSearch(this.state.strSearch);
+		this.props.goSearch("");
 	}
 	handleChange(event)
 	{
@@ -32,6 +34,7 @@ class Search extends Component {
 	}
 	render() {
 		let strSearch = (this.state.strSearch !== "") ? this.state.strSearch : this.props.search;
+		console.log(strSearch);
 	    return (
 	        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             	<div className="input-group">
@@ -57,9 +60,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		goSearch : (search) => {
 			dispatch(actChangeSearch(search));
 		},
-		clearSearch: () => {
-			dispatch(actChangeSearch(""));
-		}
+		
 
 	}
 }

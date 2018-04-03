@@ -4,7 +4,7 @@ import Sort from './Sort';
 import ToggleForm from './ToggleForm';
 
 class Control extends Component {
-	constructor(props)
+	/*constructor(props)
 	{
 		super(props);
 		this.state = {
@@ -18,13 +18,14 @@ class Control extends Component {
 	{
 		this.props.onClickAdd();
 	}
-
+*/
 	render() {
 		let {orderBy, orderDir} = this.props;
 	    return (
 	        <div className="row">
 	          	{/* SEARCH : START */}
-	          	<Search onClickGo = {this.props.onClickSearchGo}/>
+	          	
+	          	<Search />
 	          	{/* SEARCH : END */}
 
 	          	{/* SORT : START */}
