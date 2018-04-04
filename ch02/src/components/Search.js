@@ -60,8 +60,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 		goSearch : (search) => {
 			dispatch(actChangeSearch(search));
 		},
-		
-
 	}
 }
 

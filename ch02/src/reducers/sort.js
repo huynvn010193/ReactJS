@@ -1,6 +1,6 @@
 const defaultState = {
 	orderBy : 'name',
-	orderDir : 'asc'
+	orderDir : 'desc'
 }
 
 const sort = (state = defaultState,action) => {
