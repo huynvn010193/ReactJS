@@ -14,9 +14,9 @@ class List extends Component {
 
 	}
 	render() {
-		let { items, search, orderBy, orderDir } = this.props;
+		let { items, search, sort} = this.props;
+		let { orderBy,orderDir } = sort;
 		let itemsOrigin = (items !== null) ? [...items]:[];
-		console.log("sort", this.props.sort);
 
 		items = filter(itemsOrigin, (item) => {
 			return includes(item.name.toLowerCase(),search.toLowerCase());
@@ -24,7 +24,7 @@ class List extends Component {
 
 		// Sort
 		//items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);
-		items = funcOrderBy(items,orderBy,orderDir);
+		items = funcOrderBy(items,[orderBy],[orderDir]);
 
 		let eleItem = <tr><th colSpan={4}>Không có công việc</th></tr>;
 		if(items.length > 0)

@@ -1,5 +1,5 @@
 const defaultState = {
-	orderBy : 'name',
+	orderBy : 'level',
 	orderDir : 'desc'
 }
 

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 
 class Sort extends Component {
 	constructor(props)
@@ -15,7 +17,7 @@ class Sort extends Component {
 		this.props.onClickSort(orderBy,orderDir);
 	}
 	render() {
-		let {orderBy, orderDir} = this.props;
+		let {orderBy, orderDir} = this.props.sort;
 		let strSort = orderBy.toUpperCase() +' - '+orderDir.toUpperCase();
 	    return (
 	        <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -37,4 +39,11 @@ class Sort extends Component {
 	}
 }
 
-export default Sort;
+const mapStateToProps = state => {
+	return {
+		sort: state.sort
+	}
+}
+
+
+export default connect(mapStateToProps,null) (Sort);
