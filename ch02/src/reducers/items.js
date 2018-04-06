@@ -1,3 +1,4 @@
+import * as types from './../constants/ActionType'
 let defaultState = [
 	{id:"A1", name:"Coding",level:1},
 	{id:"A2", name:"FootBall",level:0},
@@ -11,7 +12,8 @@ defaultState = (tasks !== null && tasks.length > 0 ) ? tasks : defaultState;
 const items = (state = defaultState,action) => {
 	switch(action.type)
 	{
-		case "LIST_ITEM":
+		case types.DELETE_ITEM:
+			console.log(action);
 			return state;
 		default:
 			return state;
