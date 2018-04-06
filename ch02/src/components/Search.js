@@ -34,7 +34,6 @@ class Search extends Component {
 	}
 	render() {
 		let strSearch = (this.state.strSearch !== "") ? this.state.strSearch : this.props.search;
-		console.log(strSearch);
 	    return (
 	        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
             	<div className="input-group">

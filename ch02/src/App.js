@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Title from './components/Title';
-import Control from './components/Control';
 import Form from './components/Form';
 import List from './components/List';
-
+import Search from './components/Search';
+import Sort from './components/Sort';
+import ToggleForm from './components/ToggleForm';
 
 //import tasks from './mocks/tasks'
 import {filter,includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
@@ -16,15 +17,15 @@ class App extends Component {
 		this.state = {
 			items : [],
 			iShowForm : false,
-			strSearch:'',
-			orderBy: 'name',
-			orderDir: 'asc',
+			//strSearch:'',
+			//orderBy: 'name',
+			//orderDir: 'asc',
 			itemSelected: null
 		};
 		//this.handleToogleForm = this.handleToogleForm.bind(this);
 		//this.closeForm = this.closeForm.bind(this);
 		//this.handleSearch = this.handleSearch.bind(this);
-		this.handleSortApp = this.handleSortApp.bind(this);
+		//this.handleSortApp = this.handleSortApp.bind(this);
 		this.handleDelete = this.handleDelete.bind(this);
 		this.handleSubmit_App = this.handleSubmit_App.bind(this);
 		this.handleEdit_App = this.handleEdit_App.bind(this);
@@ -57,13 +58,13 @@ class App extends Component {
 			iShowForm : false
 		});
 	}*/
-	handleSortApp(orderBy,orderDir)
+	/*handleSortApp(orderBy,orderDir)
 	{
 		this.setState({
 			orderBy : orderBy,
 			orderDir: orderDir
 		});
-	}
+	}*/
 	handleDelete(id)
 	{
 		let items = this.state.items
@@ -116,7 +117,7 @@ class App extends Component {
 		let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
 		//let items = [];
 		
-		let { orderBy, orderDir,itemSelected } = this.state;
+		let { itemSelected } = this.state;
 		const search = this.state.strSearch;
 		
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
@@ -153,16 +154,11 @@ class App extends Component {
 	    	<Title />
 	    	{ /*TITLE : END */ }
 
-        	{/* CONTROL (SEARCH + SORT + ADD) : START */}
-        	<Control
-        		orderBy = {orderBy}
-        		orderDir = {orderDir}
-        		onClickSort={this.handleSortApp}
-        		//onClickSearchGo = {this.handleSearch}
-        		strSearch = {this.state.strSearch}
-        		
-        	/>
-			{/* CONTROL (SEARCH + SORT + ADD) : END */}
+        	<div className="row">
+	          	<Search />
+	          	<Sort />
+	          	<ToggleForm />
+        	</div>
 
         	<Form 
 				itemSelected = {itemSelected}

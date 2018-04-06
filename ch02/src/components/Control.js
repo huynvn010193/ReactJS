@@ -20,26 +20,8 @@ class Control extends Component {
 	}
 */
 	render() {
-		let {orderBy, orderDir} = this.props;
 	    return (
-	        <div className="row">
-	          	{/* SEARCH : START */}
-	          	
-	          	<Search />
-	          	{/* SEARCH : END */}
-
-	          	{/* SORT : START */}
-	          	<Sort
-	          		onClickSort = {this.props.onClickSort}
-					orderBy = {orderBy}
-					orderDir = {orderDir}
-	          	/>
-	          	{/* SORT : END */}
-
-	          	{/* ADD : START */}
-	          	<ToggleForm />
-	          	{/* ADD : END */}
-        	</div>
+	        
         );
 	}
 }
