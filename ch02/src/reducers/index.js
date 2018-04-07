@@ -3,21 +3,14 @@ import isShowForm from './isShowForm'
 import sort from './sort'
 import items from './items'
 import search from './search'
-
-/*const defaultState = {
-	items : [],
-	iShowForm : true,
-	strSearch:'',
-	orderBy: 'name',
-	orderDir: 'asc',
-	itemSelected: null
-}*/
+import itemSelected from './itemSelected'
 
 const appReducers = combineReducers({
 	isShowForm,
 	sort,
 	items,
-	search
+	search,
+	itemSelected
 });
 
 export default appReducers;

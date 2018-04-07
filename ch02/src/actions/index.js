@@ -53,3 +53,18 @@ export const actSubmitForm = (item) =>
 		item
 	}
 }
+
+export const actSelectedItem = (item) =>
+{
+	return {
+		type: types.SELECT_ITEM,
+		item
+	}
+}
+
+export const actUnSelectedItem = () =>
+{
+	return {
+		type: types.UNSELECT_ITEM,
+	}
+}
