@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actCloseForm } from './../actions/index'
+import { actCloseForm,actSubmitForm  } from './../actions/index'
 
 class Form extends Component {
 	constructor(props)
@@ -18,14 +18,14 @@ class Form extends Component {
 	}
 	componentWillMount()
 	{
-		let item = this.props.itemSelected;
-		this.updateItem(item);
+		/*let item = this.props.itemSelected;
+		this.updateItem(item);*/
 	}
 
 	componentWillReceiveProps(nextprops)
 	{
-		let item = nextprops.itemSelected;
-		this.updateItem(item);
+		/*let item = nextprops.itemSelected;
+		this.updateItem(item);*/
 	}
 
 	updateItem(item)
@@ -60,7 +60,7 @@ class Form extends Component {
     		name: this.state.taskname,
     		level: this.state.tasklevel
     	}
-    	this.props.onClickSubmit(item);
+    	this.props.formSubmit(item);
     	event.preventDefault();
   	}
 
@@ -105,6 +105,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		formCancel : () => {
+			dispatch(actCloseForm());
+		},
+		formSubmit : (item) =>{
+			dispatch(actSubmitForm(item));
 			dispatch(actCloseForm());
 		}
 	}

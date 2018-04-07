@@ -45,3 +45,11 @@ export const actDeleteItem = (id) =>
 		id
 	}
 }
+
+export const actSubmitForm = (item) =>
+{
+	return {
+		type: types.SUBMIT_FORM,
+		item
+	}
+}

@@ -27,7 +27,7 @@ class App extends Component {
 		//this.handleSearch = this.handleSearch.bind(this);
 		//this.handleSortApp = this.handleSortApp.bind(this);
 		//this.handleDelete = this.handleDelete.bind(this);
-		this.handleSubmit_App = this.handleSubmit_App.bind(this);
+		//this.handleSubmit_App = this.handleSubmit_App.bind(this);
 		this.handleEdit_App = this.handleEdit_App.bind(this);
 	}
 	/*// Lấy từ local store cập nhật lại cho Item
@@ -76,10 +76,10 @@ class App extends Component {
 		});
 		localStorage.setItem('task',JSON.stringify(items));
 	}*/
-	handleSubmit_App(item)
+	/*handleSubmit_App(item)
 	{
 		// Lấy ra danh sách đã tồn tại
-		let {items} = this.state;
+		let { items } = this.state;
 		let id = null;
 		if(item !== null)
 		{
@@ -102,7 +102,7 @@ class App extends Component {
 		});
 		localStorage.setItem('task',JSON.stringify(items));
 
-	}
+	}*/
 	handleEdit_App(item)
 	{
 		this.setState({
@@ -160,11 +160,7 @@ class App extends Component {
 	          	<ToggleForm />
         	</div>
 
-        	<Form 
-				itemSelected = {itemSelected}
-				onClickSubmit={this.handleSubmit_App} 
-				
-				/>;
+        	<Form />;
 
 	        {/* LIST : START */}
 	        <List 
