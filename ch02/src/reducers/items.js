@@ -1,4 +1,7 @@
 import * as types from './../constants/ActionType'
+import * as config from './../constants/Config'
+import {remove } from 'lodash';
+
 let defaultState = [
 	{id:"A1", name:"Coding",level:1},
 	{id:"A2", name:"FootBall",level:0},
@@ -13,8 +16,12 @@ const items = (state = defaultState,action) => {
 	switch(action.type)
 	{
 		case types.DELETE_ITEM:
-			console.log(action);
-			return state;
+			const id = action.id;
+			remove(state,(item)=>{
+				return item.id === id;
+			});
+			localStorage.setItem(config.ITEMS_FROM_LOCAL_STOGARE,JSON.stringify(state));
+			return [...state]; // tạo ra 1 đối tượng tham chiếu từ state ban đầu
 		default:
 			return state;
 	}

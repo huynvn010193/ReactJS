@@ -35,7 +35,7 @@ class List extends Component {
 				return (
 					<Item 
 						onClickEdit = {this.props.onClickEdit}
-						onClickDelete = {this.props.onClickDelete}
+						//onClickDelete = {this.props.onClickDelete}
 						key = {index}
 						item={item}
 						index = {index}

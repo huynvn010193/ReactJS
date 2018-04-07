@@ -26,7 +26,7 @@ class App extends Component {
 		//this.closeForm = this.closeForm.bind(this);
 		//this.handleSearch = this.handleSearch.bind(this);
 		//this.handleSortApp = this.handleSortApp.bind(this);
-		this.handleDelete = this.handleDelete.bind(this);
+		//this.handleDelete = this.handleDelete.bind(this);
 		this.handleSubmit_App = this.handleSubmit_App.bind(this);
 		this.handleEdit_App = this.handleEdit_App.bind(this);
 	}
@@ -65,7 +65,7 @@ class App extends Component {
 			orderDir: orderDir
 		});
 	}*/
-	handleDelete(id)
+	/*handleDelete(id)
 	{
 		let items = this.state.items
 		remove(items,(item)=>{
@@ -75,7 +75,7 @@ class App extends Component {
 			items: items
 		});
 		localStorage.setItem('task',JSON.stringify(items));
-	}
+	}*/
 	handleSubmit_App(item)
 	{
 		// Lấy ra danh sách đã tồn tại
@@ -169,7 +169,7 @@ class App extends Component {
 	        {/* LIST : START */}
 	        <List 
 	        	onClickEdit = {this.handleEdit_App}
-				onClickDelete = {this.handleDelete}
+				//onClickDelete = {this.handleDelete}
 	        />
 	    	{/* LIST : END */}
     	</div>
