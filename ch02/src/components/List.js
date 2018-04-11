@@ -4,7 +4,7 @@ import Item from './Item';
 import {filter,includes,orderBy as funcOrderBy } from 'lodash';
 
 class List extends Component {
-	constructor(props)
+	/*constructor(props)
 	{
 		super(props);
 		this.state = {
@@ -12,7 +12,7 @@ class List extends Component {
 		}
 		// props.onClickEdit = App.handleEdit_App
 
-	}
+	}*/
 	render() {
 		let { items, search, sort} = this.props;
 		let { orderBy,orderDir } = sort;
@@ -25,7 +25,7 @@ class List extends Component {
 		// Sort
 		items = funcOrderBy(items,[orderBy.toLowerCase()],[orderDir.toLowerCase()]);
 		//items = funcOrderBy(items,[orderBy],[orderDir]);
-		console.log(items);
+		
 
 		let eleItem = <tr><th colSpan={4}>Không có công việc</th></tr>;
 		if(items.length > 0)

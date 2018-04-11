@@ -54,11 +54,6 @@ class Item extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		//isShowForm : state.isShowForm
-	}
-}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {

@@ -7,11 +7,11 @@ import Sort from './components/Sort';
 import ToggleForm from './components/ToggleForm';
 
 //import tasks from './mocks/tasks'
-import {filter,includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
-const uuidv4 = require('uuid/v4');
+//import {filter,includes, orderBy as funcOrderBy, remove, reject } from 'lodash';
+//const uuidv4 = require('uuid/v4');
 
 class App extends Component {
-	constructor(props)
+	/*constructor(props)
 	{
 		super(props);
 		this.state = {
@@ -28,8 +28,8 @@ class App extends Component {
 		//this.handleSortApp = this.handleSortApp.bind(this);
 		//this.handleDelete = this.handleDelete.bind(this);
 		//this.handleSubmit_App = this.handleSubmit_App.bind(this);
-		this.handleEdit_App = this.handleEdit_App.bind(this);
-	}
+		//this.handleEdit_App = this.handleEdit_App.bind(this);
+	}*/
 	/*// Lấy từ local store cập nhật lại cho Item
 	componentWillMount()
 	{
@@ -103,22 +103,22 @@ class App extends Component {
 		localStorage.setItem('task',JSON.stringify(items));
 
 	}*/
-	handleEdit_App(item)
+	/*handleEdit_App(item)
 	{
 		this.setState({
 			itemSelected: item,
 			iShowForm : true
 		});
-	}	
+	}*/	
 	render() {
 		// Vừa vào thì items ban đầu bằng giá trị này
 		//let itemsOrigin = this.state.items; : Vì 2 tk cùng trỏ vào 1 vùng nhớ 
 		// Viết theo kiểu ES6
-		let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
+		//let itemsOrigin = (this.state.items !== null) ? [...this.state.items]:[];
 		//let items = [];
 		
-		let { itemSelected } = this.state;
-		const search = this.state.strSearch;
+		//let { itemSelected } = this.state;
+		//const search = this.state.strSearch;
 		
 		// Kiểm tra người dùng đã nhập thì mới thực hiện việc tìm kiếm
 		/*if(search.length > 0)
@@ -163,10 +163,7 @@ class App extends Component {
         	<Form />;
 
 	        {/* LIST : START */}
-	        <List 
-	        	onClickEdit = {this.handleEdit_App}
-				//onClickDelete = {this.handleDelete}
-	        />
+	        <List />
 	    	{/* LIST : END */}
     	</div>
 	    );

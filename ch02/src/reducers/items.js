@@ -1,7 +1,8 @@
 import * as types from './../constants/ActionType'
 import * as config from './../constants/Config'
-import {remove } from 'lodash';
+import {remove, reject} from 'lodash';
 const uuidv4 = require('uuid/v4');
+
 let defaultState = [
 	{id:"A1", name:"Coding",level:1},
 	{id:"A2", name:"FootBall",level:0},
@@ -12,7 +13,7 @@ let defaultState = [
 let tasks = JSON.parse(localStorage.getItem('task'));
 defaultState = (tasks !== null && tasks.length > 0 ) ? tasks : defaultState;
 
-const items = (state = defaultState,action) => {
+	const items = (state = defaultState,action) => {
 	let id = null;
 	switch(action.type)
 	{
@@ -25,9 +26,18 @@ const items = (state = defaultState,action) => {
 			return [...state]; // tạo ra 1 đối tượng tham chiếu từ state ban đầu
 
 		case types.SUBMIT_FORM:
-			id = uuidv4();
 			let { item } = action;
 
+			id = null;
+			if(item.id !== "")
+			{
+				state = reject(state, {id: item.id});
+				id = item.id;
+			}
+			else
+			{
+				id = uuidv4();
+			}
 			state.push({
 				id: id,
 				name : item.name,

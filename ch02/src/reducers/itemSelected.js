@@ -3,7 +3,7 @@ import * as types from './../constants/ActionType'
 let defaultState = {id:'',name:'',level:0};
 
 const itemSelected = (state = defaultState,action) => {
-	let id = null;
+	
 	switch(action.type)
 	{
 		// Nếu mà đúng là chính nó thì trả về cái item được chọn
