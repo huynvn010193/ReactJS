@@ -21,3 +21,9 @@
 	npm install jquery --save
 08/02/2018
 	Cài đặt uuid: npm install uuid
+13/04/2018
+	+ Chỉnh lại port: Thê vô file package.json => 
+	scripts ": {
+		"start" : "set PORT=3006 && react-scripts start"	
+	}
+
