@@ -11,8 +11,8 @@ class CartItem extends Component {
 	            <td><input name="cart-item-quantity-1" type="number" defaultValue={1} min={1} /></td>
 	            <td><strong>12 USD</strong></td>
 	            <td>
-	                <a className="label label-info update-cart-item" href="#" data-product>Update</a>
-	                <a className="label label-danger delete-cart-item" href="#" data-product>Delete</a>
+	                <a className="label label-info update-cart-item" type="button" data-product>Update</a>
+	                <a className="label label-danger delete-cart-item"type="button" data-product>Delete</a>
 	            </td>
 	        </tr>
 	    );

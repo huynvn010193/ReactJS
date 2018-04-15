@@ -6,7 +6,7 @@ class ProductItemNoSale extends Component {
 	    return (
 	    	<div className="media product">
 			    <div className="media-left">
-			        <a href="#">
+			        <a href="http://localhost:3000/">
 			        <img className="media-object" src="images/aplus-media.jpg" alt="charmander" />
 			        </a>
 			    </div>

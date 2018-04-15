@@ -26,4 +26,7 @@
 	scripts ": {
 		"start" : "set PORT=3006 && react-scripts start"	
 	}
+15/04/2018
+	+ Lệnh cài redux: 
+		npm install --save redux
 
