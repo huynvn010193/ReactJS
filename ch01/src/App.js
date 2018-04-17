@@ -31,7 +31,7 @@ class App extends Component {
 		elemCourse = null;
 	    return (
 	      	<div className="row">
-	      		{elemCourse}
+	      		{ elemCourse }
 	      		<Lifecycle/>
 			</div>
 	    );

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as config from './../constants/Config';
 import ProductItem from './ProductItem';
-import ProductItemNoSale from './ProductItemNoSale';
 
 
 class ProductList extends Component {
