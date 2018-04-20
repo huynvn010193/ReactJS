@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Helpers from './../libs/Helpers'
+import Validate from './../libs/Validate'
 
 class ProductItem extends Component {
 	constructor(props)
@@ -17,11 +18,17 @@ class ProductItem extends Component {
 	{
 		// Lấy ra số lượng sản phẩm dựa vào input => thêm dấu + để hiểu là kiểu số => cách ép kiểu trong reactJS
 		let quantity = +this.state.value;
-
-		console.log(product);
+		if(Validate.checkQuantity(quantity) === false)
+		{
+			console.log("validate");
+		}
+		else
+		{
+			console.log(quantity+"-"+product.id);
+		}
 	}
 
-	handleChange(event)
+	handleChange = (event) =>
 	{
 		const target = event.target;
 		const value = target.type === "checbox" ? target.checked : target.value;
@@ -60,7 +67,7 @@ class ProductItem extends Component {
 		let price = Helpers.toCurrency(product.price,"USD","right");
 		if(product.canBuy === true)
 		{
-			xhtml = <p><input name="quantity-product-1" type="number" value={this.state.value} onChange={this.handleChange} min={1} />
+			xhtml = <p><input name="value" type="number" value={this.state.value} onChange={this.handleChange} min={1} />
 	    	<a onClick={()=>this.handleClick(product)} type="button" className="price"> {price}</a></p>
 		}
 		else
