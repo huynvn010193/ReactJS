@@ -2,11 +2,35 @@ import React, { Component } from 'react';
 import Helpers from './../libs/Helpers'
 
 class ProductItem extends Component {
-	/*constructor(props)
+	constructor(props)
 	{
 		super(props);
-	}*/
 
+		this.state = {
+			value : 1,
+		}
+	}
+
+	// Viết theo kiểu arrow Function => ko cần bind vào constructor
+
+	handleClick = (product) =>
+	{
+		// Lấy ra số lượng sản phẩm dựa vào input => thêm dấu + để hiểu là kiểu số => cách ép kiểu trong reactJS
+		let quantity = +this.state.value;
+
+		console.log(product);
+	}
+
+	handleChange(event)
+	{
+		const target = event.target;
+		const value = target.type === "checbox" ? target.checked : target.value;
+		const name = target.name;
+
+		this.setState({
+			[name]: value
+		});
+	}
 	render() {
 		let {product} = this.props;
 		let name = product.name;
@@ -27,14 +51,17 @@ class ProductItem extends Component {
 	        </div>
 	    );
 	}
+
+	
+
 	showAreaBuy(product)
 	{
 		let xhtml = null;
 		let price = Helpers.toCurrency(product.price,"USD","right");
 		if(product.canBuy === true)
 		{
-			xhtml = <p><input name="quantity-product-1" type="number" defaultValue={1} min={1} />
-	    	<a data-product={1} type="button" className="price"> {price}</a></p>
+			xhtml = <p><input name="quantity-product-1" type="number" value={this.state.value} onChange={this.handleChange} min={1} />
+	    	<a onClick={()=>this.handleClick(product)} type="button" className="price"> {price}</a></p>
 		}
 		else
 		{

@@ -34,3 +34,15 @@
 	sự thay đổi của redux.
 	=> Mộ số mã nguồn sẽ viết store vảo phần index.js lun
 	=> Khi mang source qua máy khác phải install lại redux và react-redux
+20/04/2018
+	+ Lấy giá trị của input
+	handleChange(event) {
+    	const target = event.target; // Có thể là input hoặc có thể là selectbox
+	    const value = target.type === 'checkbox' ? target.checked : target.value;
+	    const name = target.name;
+	    this.setState({
+	    	[name]: value
+	    });	    
+  	}
+	Trong thẻ input => value={this.state.value} onChange={this.handleChange}
+	
