@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { actChangeNotify } from './../actions/index'
+import * as Config from './../constants/Config'
+
 import Helpers from './../libs/Helpers'
 import Validate from './../libs/Validate'
-import { actChangeNotify } from './../actions/index'
+
 
 class ProductItem extends Component {
 	constructor(props)
@@ -22,12 +25,15 @@ class ProductItem extends Component {
 		let quantity = +this.state.value;
 		if(Validate.checkQuantity(quantity) === false)
 		{
-			this.props.changeNotify('ABC');
+			this.props.changeNotify(Config.NOTI_GREATER_THAN_ONE);
 		}
 		else
 		{
-			console.log(quantity+"-"+product.id);
+			this.props.changeNotify(Config.NOTI_ACT_ADD);
 		}
+		this.setState({
+			value:1
+		})
 	}
 
 	handleChange = (event) =>
@@ -68,8 +74,10 @@ class ProductItem extends Component {
 		let price = Helpers.toCurrency(product.price,"USD","right");
 		if(product.canBuy === true)
 		{
-			xhtml = <p><input name="value" type="number" value={this.state.value} onChange={this.handleChange} min={1} />
-	    	<a onClick={()=>this.handleClick(product)} type="button" className="price"> {price}</a></p>
+			xhtml = <p>
+						<input name="value" type="number" value={this.state.value} onChange={this.handleChange} min={1} />
+				    		<a onClick={()=>this.handleClick(product)} type="button" className="price"> {price}</a>
+			    	</p>
 		}
 		else
 		{
@@ -88,4 +96,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	}
 }
 
-export default connect(null,mapDispatchToProps)(ProductItem);
+export default connect (null,mapDispatchToProps)(ProductItem);
