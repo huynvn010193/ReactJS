@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Helpers from './../libs/Helpers'
 import Validate from './../libs/Validate'
+import { actChangeNotify } from './../actions/index'
 
 class ProductItem extends Component {
 	constructor(props)
@@ -20,7 +22,7 @@ class ProductItem extends Component {
 		let quantity = +this.state.value;
 		if(Validate.checkQuantity(quantity) === false)
 		{
-			console.log("validate");
+			this.props.changeNotify('ABC');
 		}
 		else
 		{
@@ -38,6 +40,7 @@ class ProductItem extends Component {
 			[name]: value
 		});
 	}
+
 	render() {
 		let {product} = this.props;
 		let name = product.name;
@@ -59,8 +62,6 @@ class ProductItem extends Component {
 	    );
 	}
 
-	
-
 	showAreaBuy(product)
 	{
 		let xhtml = null;
@@ -79,4 +80,12 @@ class ProductItem extends Component {
 
 }
 
-export default ProductItem
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		changeNotify : (value) =>{
+			dispatch(actChangeNotify(value));
+		}
+	}
+}
+
+export default connect(null,mapDispatchToProps)(ProductItem);
