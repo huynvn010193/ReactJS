@@ -40,6 +40,7 @@ const carts = (state = defaultState, action) => {
 			{
 				state.push({product,quantity});
 			}
+			localStorage.setItem(configs.CARTS_FROM_LOCAL_STOGARE, JSON.stringify(state));
 			return [...state];
 		case types.UPDATE_PRODUCT:
 			return state;

@@ -5,9 +5,8 @@ import Notify from './Notify';
 class Cart extends Component {
 	render() {
 		let { items } = this.props;
-		console.log(items);
 	    return (
-	    	<div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	    	<div className="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 			    <div className="panel panel-danger">
 			        <div className="panel-heading">
 			            <h1 className="panel-title">Your Cart</h1>
