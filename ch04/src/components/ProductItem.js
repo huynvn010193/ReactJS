@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { actChangeNotify } from './../actions/index'
+import { actChangeNotify,actBuyProduct } from './../actions/index'
 import * as Config from './../constants/Config'
 
 import Helpers from './../libs/Helpers'
@@ -29,6 +29,7 @@ class ProductItem extends Component {
 		}
 		else
 		{
+			this.props.buyProduct(product,quantity);
 			this.props.changeNotify(Config.NOTI_ACT_ADD);
 		}
 		this.setState({
@@ -90,6 +91,9 @@ class ProductItem extends Component {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
+		buyProduct: (product,quantity) =>{
+			dispatch(actBuyProduct(product,quantity));
+		},
 		changeNotify : (value) =>{
 			dispatch(actChangeNotify(value));
 		}
