@@ -45,4 +45,6 @@
 	    });	    
   	}
 	Trong thẻ input => value={this.state.value} onChange={this.handleChange}
-	
+24/04/2018:
+	+ npm install lodash.
+	+ tính tổng quantity =>dùng sumBy trong lodash.

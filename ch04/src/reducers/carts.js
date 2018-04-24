@@ -31,7 +31,6 @@ const carts = (state = defaultState, action) => {
 
 			let { product, quantity } = action;
 			let position = getProductPosition(state,product);
-			console.log(position);
 			if(position > -1) // edit
 			{
 				state[position].quantity += quantity;
