@@ -25,14 +25,13 @@ let getProductPosition = (cartItems,product) =>{
 
 const carts = (state = defaultState, action) => {
 	let { product, quantity } = action;
+	let position = -1;
 	switch(action.type)
 	{
 		case types.BUY_PRODUCT:
 			// Lấy ra sản phẩm và số lượng mới thêm vào mảng defaultState
 			// Xử lý sản phẩm trùng.
-
-			
-			let position = getProductPosition(state,product);
+			position = getProductPosition(state,product);
 			if(position > -1) // edit
 			{
 				state[position].quantity += quantity;
@@ -44,7 +43,13 @@ const carts = (state = defaultState, action) => {
 			localStorage.setItem(configs.CARTS_FROM_LOCAL_STOGARE, JSON.stringify(state));
 			return [...state];
 		case types.UPDATE_PRODUCT:
-			return state;
+			position = getProductPosition(state,product);
+			if(position > -1) // edit
+			{
+				state[position].quantity = quantity;
+			}
+			localStorage.setItem(configs.CARTS_FROM_LOCAL_STOGARE, JSON.stringify(state));
+			return [...state];
 		case types.REMOVE_PRODUCT:
 			// => Xóa action product ra khỏi state. => sử dụng thư viện lodash
 			remove(state,(cartItem)=>{

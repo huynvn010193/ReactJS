@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Helpers from './../libs/Helpers'
 import { connect } from 'react-redux';
+import Helpers from './../libs/Helpers'
+import Validate from './../libs/Validate'
 import * as Config from './../constants/Config'
 import { actUpdateProduct,actRemoveProduct,actChangeNotify } from './../actions/index';
 
@@ -28,9 +29,23 @@ class CartItem extends Component {
 	handleDelete = (product) =>
 	{
 		this.props.removeProduct(product);
-		this.props.changeNotify(Config.NOTI_ACT_DELETE);
+		
 	}
 
+	// Xác định: bạn muốn update sản phẩm nào và số lượng là bao nhiêu ?
+	handleUpdate = (product,quantity) =>
+	{
+		if(Validate.checkQuantity(quantity) === false)
+		{
+			this.props.changeNotify(Config.NOTI_GREATER_THAN_ONE);
+		}
+		else
+		{
+			this.props.updateProduct(product,+quantity);
+			this.props.changeNotify(Config.NOTI_ACT_UPDATE);
+		}
+		
+	}
 	render() {
 		// cartItem là 1 đối tương gồm 2 phần tử product và quantity
 		let {cartItem,index} = this.props;
@@ -44,13 +59,13 @@ class CartItem extends Component {
 	            <td>{product.name}.</td>
 	            <td>{ price }</td>
 	            <td>
-	            	<input name="name" type="number" value = { quantity } min={1} onChange={this.handleChange}/>
+	            	<input name="value" type="number" value = { quantity } min={1} onChange={this.handleChange}/>
 	            </td>
 	            <td>
 	            	<strong>{this.showSubTotal(product,quantity)}</strong>
 	            	</td>
 	            <td>
-	                <a className="label label-info update-cart-item" type="button" data-product>Update</a>
+	                <a onClick={() => this.handleUpdate(product,quantity)} className="label label-info update-cart-item" type="button" data-product>Update</a>
 	                <a onClick={() => this.handleDelete(product)} className="label label-danger delete-cart-item"type="button" data-product>Delete</a>
 	            </td>
 	        </tr>

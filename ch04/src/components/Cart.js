@@ -40,12 +40,13 @@ class Cart extends Component {
 
 	showElementBody(items)
 	{
+
 		let xhtml = null;
 		if(items.length > 0)
 		{
 			xhtml = items.map((cartItem,index) => {
 				return(
-					<CartItem key={index} cartItem={cartItem} index={index}/>
+					<CartItem key={index + '-'+cartItem.quantity} cartItem={cartItem} index={index}/>
 				);
 			});
 		}
