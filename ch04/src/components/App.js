@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Title from './Title';
-import ProductList from './ProductList';
+import ProductsContainer from './../containers/ProductsContainer';
 import Cart from './Cart';
 class App extends Component {
   render() {
@@ -8,7 +8,7 @@ class App extends Component {
         <div>
             <Title />
             <div className="row">
-            	<ProductList />
+            	<ProductsContainer />
             	<Cart />
             </div>
         </div>

@@ -50,3 +50,5 @@
 	+ tính tổng quantity =>dùng sumBy trong lodash.
 25/04/2018
 	+ Khi key không thay đổi thì các phần tử sẽ không load lại: <CartItem key={index + '-'+cartItem.quantity} cartItem={cartItem} index={index}/>
+26/04/2015:
+	+ Trong containers: quy định những tập tin kết nối vs redux.
