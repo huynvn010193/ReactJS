@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import Helpers from './../libs/Helpers'
+import { connect } from 'react-redux';
+import * as Config from './../constants/Config'
+import { actUpdateProduct,actRemoveProduct,actChangeNotify } from './../actions/index';
+
 
 class CartItem extends Component {
 	constructor(props)
@@ -19,6 +23,12 @@ class CartItem extends Component {
 		this.setState({
 			[name]: value
 		});
+	}
+
+	handleDelete = (product) =>
+	{
+		this.props.removeProduct(product);
+		this.props.changeNotify(Config.NOTI_ACT_DELETE);
 	}
 
 	render() {
@@ -41,7 +51,7 @@ class CartItem extends Component {
 	            	</td>
 	            <td>
 	                <a className="label label-info update-cart-item" type="button" data-product>Update</a>
-	                <a className="label label-danger delete-cart-item"type="button" data-product>Delete</a>
+	                <a onClick={() => this.handleDelete(product)} className="label label-danger delete-cart-item"type="button" data-product>Delete</a>
 	            </td>
 	        </tr>
 	    );
@@ -52,7 +62,25 @@ class CartItem extends Component {
 		result = Helpers.toCurrency(product.price * quantity,"USD","right");
 		return result;
 	}
-
 }
 
-export default CartItem
+const mapDispatchToProps = (dispatch, ownProps) => {
+	return {
+		updateProduct: (product,quantity) =>
+		{
+			dispatch(actUpdateProduct(product,quantity));
+		},
+		removeProduct: (product) =>
+		{
+			dispatch(actRemoveProduct(product));
+		},
+		changeNotify: (value) =>
+		{
+			dispatch(actChangeNotify(value));
+		}
+	}
+}
+
+
+
+export default connect(null,mapDispatchToProps)(CartItem);
