@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { connect } from 'react-redux'
 import ProductList from '../components/ProductList';
+import PropTypes from 'prop-types';
 
 const ProductsContainer = ({ products }) => (
     <ProductList products={products}></ProductList>
@@ -28,21 +28,14 @@ export default connect(mapStateToProps, null)(ProductsContainer);
 //   </ProductsList>
 // )
 
-// ProductsContainer.propTypes = {
-//   products: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     title: PropTypes.string.isRequired,
-//     price: PropTypes.number.isRequired,
-//     inventory: PropTypes.number.isRequired
-//   })).isRequired,
-//   addToCart: PropTypes.func.isRequired
-// }
-
-// const mapStateToProps = state => ({
-//   products: getVisibleProducts(state.products)
-// })
-
-// export default connect(
-//   mapStateToProps,
-//   { addToCart }
-// )(ProductsContainer)
+// Thiết lập xem product có những kiểu dữ liệu gì
+ProductsContainer.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        summary: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        canBuy: PropTypes.bool.isRequired
+    })).isRequired,
+}
