@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { actChangeNotify,actBuyProduct } from './../actions/index'
 import * as Config from './../constants/Config'
-
 import Helpers from './../libs/Helpers'
 import Validate from './../libs/Validate'
 
@@ -11,7 +8,6 @@ class ProductItem extends Component {
 	constructor(props)
 	{
 		super(props);
-
 		this.state = {
 			value : 1,
 		}
@@ -29,8 +25,8 @@ class ProductItem extends Component {
 		}
 		else
 		{
-			this.props.buyProduct(product,quantity);
-			this.props.changeNotify(Config.NOTI_ACT_ADD);
+			this.props.onBuyProduct(product,quantity);
+			this.props.onChangeNotify(Config.NOTI_ACT_ADD);
 		}
 		this.setState({
 			value:1
@@ -89,15 +85,4 @@ class ProductItem extends Component {
 
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		buyProduct: (product,quantity) =>{
-			dispatch(actBuyProduct(product,quantity));
-		},
-		changeNotify : (value) =>{
-			dispatch(actChangeNotify(value));
-		}
-	}
-}
-
-export default connect (null,mapDispatchToProps)(ProductItem);
+export default ProductItem;

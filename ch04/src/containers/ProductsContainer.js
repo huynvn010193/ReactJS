@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ProductList from './../components/ProductList';
 import PropTypes from 'prop-types';
-
+import { actChangeNotify,actBuyProduct } from './../actions/index'
 import * as config from './../constants/Config';
 import ProductItem from './../components/ProductItem';
 
@@ -24,7 +24,12 @@ class ProductsContainer extends Component {
             xhtml = products.map((product, index) =>
             {
                 return (
-                    <ProductItem key = {index} product={product} index={index}/>    
+                    <ProductItem key = {index} 
+                        product={product} 
+                        index={index} 
+                        onBuyProduct = {this.props.buyProduct}
+                        onChangeNotify = {this.props.changeNotify}
+                    />
                 );
             });
         }
@@ -54,4 +59,15 @@ const mapStateToProps = state =>
     }
 }
 
-export default connect(mapStateToProps, null)(ProductsContainer);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        buyProduct: (product,quantity) =>{
+            dispatch(actBuyProduct(product,quantity));
+        },
+        changeNotify : (value) =>{
+            dispatch(actChangeNotify(value));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer);
