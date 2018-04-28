@@ -1,32 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ProductList from '../components/ProductList';
+import ProductList from './../components/ProductList';
 import PropTypes from 'prop-types';
 
-const ProductsContainer = ({ products }) => (
-    <ProductList products={products}></ProductList>
-)
+import * as config from './../constants/Config';
+import ProductItem from './../components/ProductItem';
 
-// lấy state.product trong store;
+class ProductsContainer extends Component {
+    render() {
+        let { products } = this.props;
+        return (
+            <ProductList>
+                {this.showElementProduct(products)}
+            </ProductList>
+        );
+    }
 
-const mapStateToProps = state =>
-{
-    return {
-        products: state.products
+    showElementProduct(products)
+    {
+        let xhtml = <b>{ config.NOTI_EMPTY_PRODUCT }</b>
+        if(products.length > 0)
+        {
+            xhtml = products.map((product, index) =>
+            {
+                return (
+                    <ProductItem key = {index} product={product} index={index}/>    
+                );
+            });
+        }
+
+        return xhtml;
     }
 }
-export default connect(mapStateToProps, null)(ProductsContainer);
 
-///const ProductsContainer = ({ products, addToCart }) => (
-//   <ProductsList title="Products">
-//     {products.map(product =>
-//       <ProductItem
-//         key={product.id}
-//         product={product}
-//         onAddToCartClicked={() => addToCart(product.id)} />
-//     )}
-//   </ProductsList>
-// )
+// lấy state.product trong store;
 
 // Thiết lập xem product có những kiểu dữ liệu gì
 ProductsContainer.propTypes = {
@@ -39,3 +46,12 @@ ProductsContainer.propTypes = {
         canBuy: PropTypes.bool.isRequired
     })).isRequired,
 }
+
+const mapStateToProps = state =>
+{
+    return {
+        products: state.products
+    }
+}
+
+export default connect(mapStateToProps, null)(ProductsContainer);

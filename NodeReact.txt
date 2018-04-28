@@ -54,3 +54,10 @@
 	+ Trong containers: quy định những tập tin kết nối vs redux.
 27/04/2018: 
 	+ PropTypes: kiểm tra xem những cái properties(thuộc tính) nhận vào có đúng kiểu dữ liệu của nó hay ko ?
+28/04/2018
+	+ File ProductsContainer.js 
+		- 	<ProductList products={products}>
+                {this.showElementProduct(products)}
+            </ProductList>
+		{this.showElementProduct(products)} => qua file ProductList.js thì là this.props.children;
+	
