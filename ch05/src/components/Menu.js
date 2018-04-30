@@ -7,6 +7,7 @@ class Menu extends Component{
 				<div className="list-group">
 					<NavLink exact to="/" activeClassName="active" className="list-group-item">Home</NavLink>
 					<NavLink to="/About" activeClassName="active" className="list-group-item">About</NavLink>
+					<NavLink to="/Course" activeClassName="active" className="list-group-item">Course</NavLink>
 				</div>
 			</div>
 		);

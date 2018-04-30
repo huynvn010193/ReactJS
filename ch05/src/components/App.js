@@ -4,6 +4,7 @@ import Menu from './Menu';
 import Title from './Title';
 import Home from './Home';
 import About from './About';
+import Course from './Course';
 import NotFound from './NotFound'
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
 		        			<Switch>
 			        			<Route exact path="/" component={Home} />
 	      						<Route exact path="/about" component={About} />
+	      						<Route exact path="/course" component={Course} />
 								<Route component={NotFound} />
 							</Switch>
 		        		</div>

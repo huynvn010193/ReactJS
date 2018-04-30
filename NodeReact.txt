@@ -64,3 +64,5 @@
 	+ Install react-router: $ npm install --save react-router-dom
 	+ Sử dụng Link, NavLink: Lưu ý vs thuộc tính exact; => activeClassName="selected": nếu dc chọn thì active
 	+ Sử dụng Switch=> Ý nghĩa, nếu đường dẫn trùng thì lấy đường dẫn duy nhất.
+	+ Cách viết lấy url: to={`${match.url}/angular`}
+	
