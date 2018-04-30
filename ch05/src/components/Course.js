@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink,Route } from 'react-router-dom';
+import CourseItem from './CourseItem';
 
 class Course extends Component {
     constructor(props) {
@@ -20,9 +21,10 @@ class Course extends Component {
                 	<NavLink exact to={`${match.url}/reactjs`} activeClassName="active" className="list-group-item">ReactJS</NavLink>
                 	<NavLink exact to={`${match.url}/nodejs`} activeClassName="active" className="list-group-item">NodeJS</NavLink>
                 </div>
-                <Route exact path="/course" render={() =>(
-					<h3>Please select a course</h3>
-                )} />
+                <Route exact path={match.url} render={()=>(
+                    <h3>Please select a course</h3>
+                )}/>
+                <Route path={`${match.url}/:name`} component={CourseItem}/>
             </div>
         );
     }
