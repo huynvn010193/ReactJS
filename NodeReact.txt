@@ -60,4 +60,5 @@
                 {this.showElementProduct(products)}
             </ProductList>
 		{this.showElementProduct(products)} => qua file ProductList.js thì là this.props.children;
-	
+30/04/2018
+	Install react-router: $ npm install --save react-router-dom
