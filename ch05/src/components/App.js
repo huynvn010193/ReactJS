@@ -2,34 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Menu from './Menu';
 import Title from './Title';
-import Home from './Home';
-import About from './About';
-import Course from './Course';
-import NotFound from './NotFound'
-
-const routes = [
-  	{
-	    path: "/",
-	    exact: true,
-	    main: () => <Home />
-  	},
-  	{
-	    path: "/about",
-	    exact: true,
-	    main: () => <About />
-  	},
-  	{
-	    path: "/course",
-	    exact: false,
-	    main: ({match}) => <Course match={match}/>
-  	},
-  	{
-	    path: "",
-	    exact: true,
-	    main: () => <NotFound />
-  	}
-];
-
+import routes from './../route-config';
 
 class App extends Component {
   render() {
