@@ -7,6 +7,30 @@ import About from './About';
 import Course from './Course';
 import NotFound from './NotFound'
 
+const routes = [
+  	{
+	    path: "/",
+	    exact: true,
+	    main: () => <Home />
+  	},
+  	{
+	    path: "/about",
+	    exact: true,
+	    main: () => <About />
+  	},
+  	{
+	    path: "/course",
+	    exact: false,
+	    main: ({match}) => <Course match={match}/>
+  	},
+  	{
+	    path: "",
+	    exact: true,
+	    main: () => <NotFound />
+  	}
+];
+
+
 class App extends Component {
   render() {
     return (
@@ -20,18 +44,27 @@ class App extends Component {
 		        			<h3 className="panel-title">Content</h3>
 		        		</div>
 		        		<div className="panel-body">
-		        			<Switch>
-			        			<Route exact path="/" component={Home} />
-	      						<Route exact path="/about" component={About} />
-	      						<Route path="/course" component={Course} />
-								<Route component={NotFound} />
-							</Switch>
-		        		</div>
+		        			{this.showRoute(routes)}
+						</div>
 		        	</div>
 		        </div>
 	        </div>
 	    </Router>
     	);
+  	}
+
+  	showRoute(routes)
+  	{
+  		let xhtml = null;
+  		if(routes.length > 0)
+  		{
+			xhtml = routes.map((route,index) =>{
+				return(
+					<Route key={index} exact={route.exact} path={route.path} component={route.main} />
+				);
+			});
+  		}
+  		return <Switch>{xhtml}</Switch>;
   	}
 }
 

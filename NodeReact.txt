@@ -66,4 +66,10 @@
 	+ Sử dụng Switch=> Ý nghĩa, nếu đường dẫn trùng thì lấy đường dẫn duy nhất.
 	+ Cách viết lấy url: to={`${match.url}/angular`}
 	+ Nếu không nối chuỗi ghi đơn giản lun {`${match.url}`} => {match.url}
+01/05/2018
+	+ https://reacttraining.com/react-router/
+	+ Ghi bằng arrow function thì phải truyền match như sau:  main: ({match}) => <Course match={match}/>
+	
+	
+	
 	
