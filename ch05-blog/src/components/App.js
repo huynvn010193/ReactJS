@@ -4,6 +4,10 @@ import Navigation from "./Navigation";
 import Slider from "./Slider";
 import NewsItem from "./NewsItem";
 import Footer from "./Footer";
+import AboutItem from "./AboutItem";
+import BlogItem from "./BlogItem";
+import FormLogin from "./FormLogin";
+import UserControl from "./UserControl";
 
 class App extends Component {
   render() {
@@ -15,7 +19,7 @@ class App extends Component {
         		<Slider />
         		<NewsItem />
         		<NewsItem />
-        		<NewsItem />
+                <NewsItem />
         	</div>
         	<Footer/>
         </div>
