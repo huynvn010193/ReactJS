@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import {Route, NavLink,Link } from 'react-router-dom';
 
 const menus = [
 	{to: '/', exact: true, name:'Home'},
-	{to: '/about', exact: false, name:'About'},
-	{to: '/blog', exact: false, name:'Blog'},
+	{to: '/about', exact: true, name:'About'},
+	{to: '/blog', exact: true, name:'Blog'},
 	{to: '/login', exact: true, name:'Login'},
 ]
+
+const MenuLink = ({ menu }) => {
+	return (
+		<Route
+		    path={menu.to}
+		    exact={menu.exact}
+		    children=
+			    {
+			    	({ match }) => {
+			    		let active = (match !== null) ? "active":"";
+
+			    		return (
+			    			<li className={`nav-item px-lg-4 ${active}`}>
+						        <Link to={menu.to} className="nav-link text-uppercase text-expanded">
+									{menu.name}
+								</Link>
+					      	</li>
+			    		)  	
+			    	}
+				}/>
+		)
+};
 
 class Navigation extends Component {
   render() {
@@ -21,15 +43,29 @@ class Navigation extends Component {
 		        </button>
 		        <div className="collapse navbar-collapse" id="navbarResponsive">
 		            <ul className="navbar-nav mx-auto">
-		            	{this.showMenu(menus)}
+		            	{this.showMenusTwo(menus)}
 		            </ul>
 		        </div>
 		    </div>
 		</nav>
 	);
   	}
+	
+	showMenusTwo(menus)
+	{
+		let xhtml = null;
+		if(menus.length > 0)
+		{
+			xhtml = menus.map((menu,index)=>{
+				return (
+					<MenuLink menu={menu} key={index}/>
+				);
+			});
+		}
+		return xhtml;
+	}
 
-  	showMenu(menus)
+  	showMenuOne(menus)
 	{
 		let xhtml = null;
 		if(menus.length > 0)
