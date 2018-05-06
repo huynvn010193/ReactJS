@@ -11,7 +11,7 @@ class AboutItem extends Component {
 		    <hr className="divider" />
 		    <div className="row">
 		        <div className="col-lg-6">
-		            <img className="img-fluid mb-4 mb-lg-0" src="img/slide-2.jpg" alt />
+		            <img className="img-fluid mb-4 mb-lg-0" src="img/slide-2.jpg" alt="img01" />
 		        </div>
 		        <div className="col-lg-6">
 		            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam soluta dolore voluptatem, deleniti dignissimos excepturi veritatis cum hic sunt perferendis ipsum perspiciatis nam officiis sequi atque enim ut! Velit, consectetur.</p>
