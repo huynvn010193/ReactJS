@@ -1,8 +1,8 @@
 import * as types from './../constants/ActionTypes';
 
 let defaultState = {
-	isLogin: false,
-	username:null
+	isLogin: true,
+	username:"admin"
 }
 
 const checkLogin = (username,password) => {
