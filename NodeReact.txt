@@ -29,6 +29,7 @@
 15/04/2018
 	+ Lệnh cài redux: 
 		npm install --save redux
+		npm install --save react-redux
 16/04/2018:
 	+ window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(); => lệnh kích hoạt extention của Chrome để xem 
 	sự thay đổi của redux.
