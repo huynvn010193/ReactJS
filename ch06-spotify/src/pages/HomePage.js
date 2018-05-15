@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import FormSearch from './../components/FormSearch';
+import ArtistList from '../components/ArtistList';
 
 class HomePage extends Component
 {
@@ -10,7 +11,9 @@ class HomePage extends Component
 				<div className="panel-heading">
 					<FormSearch />
 				</div>
-				
+				<div className="panel-body">
+                    <ArtistList/>
+                </div>
 			</div>
         )
     }
