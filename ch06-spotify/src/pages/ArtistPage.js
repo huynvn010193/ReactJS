@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ArtistList from '../components/Album';
 import Album from '../components/Album';
 
 class ArtistPage extends Component

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Artist from './Artist';
+import {connect} from 'react-redux';
 
 class ArtistList extends Component {
     constructor(props)
@@ -12,10 +13,12 @@ class ArtistList extends Component {
     }
 
     render() {
+        console.log(this.props.query);
+        
         let xhtml = <h3>Enter artist's name to start</h3>
         if(1 > 0)
         {
-            xhtml = <Artist/>;
+            xhtml = <div><Artist/><Artist/><Artist/></div>;
         }
         return (
             <div className="row">
@@ -25,4 +28,10 @@ class ArtistList extends Component {
     }
 }
 
-export default ArtistList;
+const mapStateToProps = state => {
+	return{
+		query : state.query
+	}
+}
+
+export default connect(mapStateToProps,null) (ArtistList);
