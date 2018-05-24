@@ -80,4 +80,10 @@
 	Đơn giản hơn:
 		C1: Do FormSearch và ArtistList cùng thuộc HomePage nên ta chia sẽ thông qua props.
 		C2: Sử dụng redux. redux có 1 giá trị là query. query này dc chia sẽ cho FormSearch và ArtistList.
-		
+24/05/2018:
+	+ Download: https://github.com/spotify/web-api-auth-examples
+		- var client_id = '57d187c960cf4a2a8e472c9d538e990a'; // Your client id
+		- var client_secret = 'd856c81ff5974c46b94f93bf57b05d65'; // Your secret
+		- var redirect_uri = 'http://localhost:8888/callback/'; // Your redirect uri
+	+ https://beta.developer.spotify.com/dashboard/applications
+	+ $ node app.js

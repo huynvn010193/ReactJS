@@ -14,7 +14,6 @@ class ArtistList extends Component {
 
     render() {
         console.log(this.props.query);
-        
         let xhtml = <h3>Enter artist's name to start</h3>
         if(1 > 0)
         {
