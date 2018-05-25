@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Artist from './Artist';
+
 import {connect} from 'react-redux';
+import Artist from './Artist';
+import * as config from './../constants/Config';
 
 class ArtistList extends Component {
     constructor(props)
@@ -12,8 +14,25 @@ class ArtistList extends Component {
         }
     }
 
+    searchArtist(query)
+    {
+        if(query !== "" && query !== null)
+        {
+            let url = config.BASE_URL + '/search?q='+query+'&type=artist&limit=4&offset=0';
+            console.log(url);
+        }
+        // fetch('http://example.com/movies.json')
+        // .then(function(response) {
+        //     return response.json();
+        // })
+        // .then(function(myJson) {
+        //     console.log(myJson);
+        // });
+    }
+
     render() {
-        console.log(this.props.query);
+        let query = this.props.query;
+        this.searchArtist(query);
         let xhtml = <h3>Enter artist's name to start</h3>
         if(1 > 0)
         {

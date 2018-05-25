@@ -87,3 +87,8 @@
 		- var redirect_uri = 'http://localhost:8888/callback/'; // Your redirect uri
 	+ https://beta.developer.spotify.com/dashboard/applications
 	+ $ node app.js
+25/05/2018:
+	+ Fetch API: Gửi yêu cầu đến API nào đó và nhận kết quả trả về.
+		https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+	+
+	

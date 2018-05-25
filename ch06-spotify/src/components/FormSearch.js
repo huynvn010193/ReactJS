@@ -31,7 +31,6 @@ class FormSeach extends Component {
         this.setState({
             [name]: value
         });
-
     }
 
     render() {
