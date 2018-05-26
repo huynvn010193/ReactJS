@@ -108,4 +108,6 @@
                 console.log(responseData);
             });
         }
+	+ Khi State thay đổi => render chạy lại.
+	+ Để không bị chạy hoài => LifeCycle => componentWillReceiveProps(): 
 	

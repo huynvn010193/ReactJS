@@ -9,7 +9,7 @@ class ArtistList extends Component {
     {
         super(props);
         this.state = {
-            artist: [],
+            artists: [],
             isExist: false
         }
     }
@@ -28,15 +28,26 @@ class ArtistList extends Component {
             }
             fetch(url,config)
                 .then((response) => response.json())
-                .then((responseData) => {
-                console.log(responseData);
+                .then((data) => {
+                    if(data !== undefined && data !== null)
+                    {
+                        this.setState({
+                            artists: data.artists.items
+                        });
+                    }
             });
         }
     }
 
+    componentWillReceiveProps(nextProps)
+    {
+        this.searchArtist(nextProps.query);
+    }
+
     render() {
-        let query = this.props.query;
-        this.searchArtist(query);
+        let {artists} = this.state;
+        console.log(artists);
+        
         let xhtml = <h3>Enter artist's name to start</h3>
         if(1 > 0)
         {
