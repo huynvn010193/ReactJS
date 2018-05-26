@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {connect} from 'react-redux';
 import Artist from './Artist';
-import * as config from './../constants/Config';
+import * as configs from './../constants/Config';
 
 class ArtistList extends Component {
     constructor(props)
@@ -18,16 +18,20 @@ class ArtistList extends Component {
     {
         if(query !== "" && query !== null)
         {
-            let url = config.BASE_URL + '/search?q='+query+'&type=artist&limit=4&offset=0';
-            console.log(url);
+            let url = configs.BASE_URL + 'search?q='+query+'&type=artist&limit=4&offset=0';
+            let config = {
+                method:'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + configs.API_KEY,
+                }
+            }
+            fetch(url,config)
+                .then((response) => response.json())
+                .then((responseData) => {
+                console.log(responseData);
+            });
         }
-        // fetch('http://example.com/movies.json')
-        // .then(function(response) {
-        //     return response.json();
-        // })
-        // .then(function(myJson) {
-        //     console.log(myJson);
-        // });
     }
 
     render() {

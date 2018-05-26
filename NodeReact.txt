@@ -90,5 +90,22 @@
 25/05/2018:
 	+ Fetch API: Gửi yêu cầu đến API nào đó và nhận kết quả trả về.
 		https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-	+
+26/05/2018:
+	Cách lấy dữ liệu từ reponse:
+		if(query !== "" && query !== null)
+        {
+            let url = configs.BASE_URL + 'search?q='+query+'&type=artist&limit=4&offset=0';
+            let config = {
+                method:'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + configs.API_KEY,
+                }
+            }
+            fetch(url,config)
+                .then((response) => response.json())
+                .then((responseData) => {
+                console.log(responseData);
+            });
+        }
 	
