@@ -37,21 +37,30 @@ class ArtistList extends Component {
                     }
             });
         }
+        else
+        {
+            this.setState({
+                artists: []
+            });
+        }
     }
 
     componentWillReceiveProps(nextProps)
     {
+        console.log(nextProps);
         this.searchArtist(nextProps.query);
     }
 
     render() {
         let {artists} = this.state;
-        console.log(artists);
-        
-        let xhtml = <h3>Enter artist's name to start</h3>
-        if(1 > 0)
+        let xhtml = <h3>Enter artist's name to start</h3>;
+        if(artists.length > 0)
         {
-            xhtml = <div><Artist/><Artist/><Artist/></div>;
+            xhtml = artists.map((artist,index) =>{
+                return (
+                    <Artist key={index} item={artist} index={index}/>
+                );
+            });
         }
         return (
             <div className="row">
