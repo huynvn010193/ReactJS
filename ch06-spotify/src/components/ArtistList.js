@@ -47,12 +47,12 @@ class ArtistList extends Component {
 
     componentWillReceiveProps(nextProps)
     {
-        console.log(nextProps);
         this.searchArtist(nextProps.query);
     }
 
     render() {
         let {artists} = this.state;
+        let {query} = this.props;
         let xhtml = <h3>Enter artist's name to start</h3>;
         if(artists.length > 0)
         {
@@ -61,6 +61,10 @@ class ArtistList extends Component {
                     <Artist key={index} item={artist} index={index}/>
                 );
             });
+        }
+        else if(query !== "")
+        {
+            xhtml = <h3>Không có dữ liệu cho <strong>{query}</strong></h3>
         }
         return (
             <div className="row">
