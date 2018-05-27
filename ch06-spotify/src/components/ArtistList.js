@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import {connect} from 'react-redux';
+
 import Artist from './Artist';
-import * as configs from './../constants/Config';
+import SpotifyFetch from '../services/SpotifyFetch';
 
 class ArtistList extends Component {
     constructor(props)
@@ -18,23 +18,13 @@ class ArtistList extends Component {
     {
         if(query !== "" && query !== null)
         {
-            let url = configs.BASE_URL + 'search?q='+query+'&type=artist&limit=4&offset=0';
-            let config = {
-                method:'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + configs.API_KEY,
+            SpotifyFetch.getArtists(query).then((data) => {
+                if(data !== undefined && data !== null)
+                {
+                    this.setState({
+                        artists: data.artists.items
+                    });
                 }
-            }
-            fetch(url,config)
-                .then((response) => response.json())
-                .then((data) => {
-                    if(data !== undefined && data !== null)
-                    {
-                        this.setState({
-                            artists: data.artists.items
-                        });
-                    }
             });
         }
         else

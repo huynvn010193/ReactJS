@@ -1,2 +1,2 @@
-export const API_KEY = 'BQCmBlxashZGYXSwk3iDFpSOAsSSeq2GXzo16zmwGRw-FqiXO2oudtqmrM_XVEkGzgSIobl7RAXgTeFQRBewp8DrUatnw3PB5X8qR5MGNRfEMyn7K4VO33cStDk8B3sGXeMLj5k5OEmBG0YhsMclbOZe0BLN_U5xJgiGA26--HC-Bq6HHg';
+export const API_KEY = 'BQDZzoiH9NMlLb_9c9G0hK9ET5KrjI6S4cGyuhj_MPMc89daAVS_9u2YGV32bOcf16xgzx6DTyetVLG8sdYZYFo4EwTj89XnaZJ8dNKi0auSxAM2tJgQQz7Aso03Lf6R8VcXPU7uCYLkhDV6hTZzHIy-mfz-dgfZzLF5bScIwIheZmzijA';
 export const BASE_URL = 'https://api.spotify.com/v1/';
