@@ -110,4 +110,5 @@
         }
 	+ Khi State thay đổi => render chạy lại.
 	+ Để không bị chạy hoài => LifeCycle => componentWillReceiveProps(): 
-	
+27/05/2018
+	+ Cài đặt lệnh : npm install query-string
