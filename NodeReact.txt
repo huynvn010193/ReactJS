@@ -113,6 +113,7 @@
 27/05/2018
 	+ Cài đặt lệnh : npm install query-string
 02/06/2018:
-	npm axios: https://www.npmjs.com/package/axios
-	+ Cài đặt: 
+	- npm axios: https://www.npmjs.com/package/axios
+		+ Cài đặt: 
 		npm install axios
+	- Do khi vừa vào chưa kịp đến trang Spotify lấy dữ liệu về. Nên phải gán kiểu dữ liệu ban đầu là rỗng.
