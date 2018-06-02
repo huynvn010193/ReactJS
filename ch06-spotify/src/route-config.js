@@ -13,12 +13,12 @@ const routes = [
 	{
 		path: '/artist/:id',
 		exact: true,
-		main: ({macth}) => <ArtistPage macth={macth}/>
+		main: ({match}) => <ArtistPage match={match}/>
 	},
 	{
 		path: '/album/:id',
 		exact: true,
-		main: ({macth}) => <AlbumPage macth={macth}/>
+		main: ({match}) => <AlbumPage match={match}/>
 	},
 	// {
 	// 	path: '',

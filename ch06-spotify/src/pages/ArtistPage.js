@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import Album from '../components/Album';
+import SpotifyAxios from './../services/SpotifyAxios';
 
 class ArtistPage extends Component
 {
+    constructor(props){
+        super(props);
+        this.state = {
+            artist: null,
+            albums: []
+        }
+    }
+
+    componentWillMount()
+    {
+        let {match} = this.props;
+        let id = match.params.id;
+        SpotifyAxios.getArtists(id);
+    }
+
     render(){
+        
+
         return (
             <div className="panel panel-info">
                 <div className="panel-heading">
