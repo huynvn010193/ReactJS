@@ -16,12 +16,19 @@ class ArtistPage extends Component
     {
         let {match} = this.props;
         let id = match.params.id;
-        SpotifyAxios.getArtists(id);
+        SpotifyAxios.getArtists(id).then((reponse) =>
+        {
+            if(reponse !== undefined && reponse.data !== null)
+            {
+                this.setState({
+                    artist:reponse.data,
+                })
+            }
+        })
     }
 
     render(){
-        
-
+        console.log(this.state.artist);
         return (
             <div className="panel panel-info">
                 <div className="panel-heading">
