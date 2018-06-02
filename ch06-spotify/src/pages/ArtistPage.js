@@ -16,12 +16,31 @@ class ArtistPage extends Component
     {
         let {match} = this.props;
         let id = match.params.id;
+        this.loadArtist(id);
+        this.loadAlbums(id);
+    }
+
+    loadArtist(id)
+    {
         SpotifyAxios.getArtists(id).then((reponse) =>
         {
             if(reponse !== undefined && reponse.data !== null)
             {
                 this.setState({
                     artist:reponse.data,
+                })
+            }
+        })
+    }
+
+    loadAlbums(id)
+    {
+        SpotifyAxios.getAlbums(id).then((reponse) =>
+        {
+            if(reponse !== undefined && reponse.data !== null)
+            {
+                this.setState({
+                    albums:reponse.data.items,
                 })
             }
         })
@@ -34,7 +53,15 @@ class ArtistPage extends Component
             genres: [],
             images: [{url:''}]
         }
+        let albums = [{
+                name:'',
+                id: '',
+                images: [{url: ''}]
+            }]
         artist = this.state.artist !== null ? this.state.artist : artist;
+        albums = this.state.albums !== null ? this.state.albums : albums;
+        console.log(albums);
+        
         return (
             <div className="panel panel-info">
                 <div className="panel-heading">
@@ -57,11 +84,7 @@ class ArtistPage extends Component
                                 <div className="panel-heading">
                                     <h3 className="panel-title">List Albums</h3>
                                 </div>
-                                <div className="panel-body list-albums">
-                                    <Album/>
-                                    <Album/>
-                                    <Album/>
-                                </div>
+                                {this.showAlbums(albums)}
                             </div>
                         </div>
                     </div>
@@ -94,6 +117,24 @@ class ArtistPage extends Component
             xhtml = <img src={item.images[0].url} alt={item.name} className="img-rounded img-responsive"/>
         }
         return xhtml;
+    }
+
+    showAlbums(albums)
+    {
+        let xhtml = null;
+        if(albums !== null && albums.length > 0)
+        {
+            xhtml = albums.map((album,index)=>{
+                return (
+                    <Album key={index} item={album} index={index}/>
+                );
+            });
+        }
+        return(
+            <div className="panel-body list-albums">
+                {xhtml}
+            </div>
+        )
     }
 }
 
