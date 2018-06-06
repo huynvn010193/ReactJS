@@ -27,6 +27,12 @@ export default class SpotifyAxios{
         return axios.get(url,SpotifyAxios.config).catch(this.handleError);
     }
 
+    static getAlbum(albumID)
+    {
+        let url = `${configs.BASE_URL}albums/${albumID}`;
+        return axios.get(url,SpotifyAxios.config).catch(this.handleError);
+    }
+
     static handleError(error)
     {
         console.log(error);

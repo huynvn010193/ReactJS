@@ -19,7 +19,7 @@ const routes = [
 		path: '/album/:id',
 		exact: true,
 		main: ({match}) => <AlbumPage match={match}/>
-	},
+	}
 	// {
 	// 	path: '',
 	// 	exact: true,

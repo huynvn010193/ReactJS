@@ -60,8 +60,6 @@ class ArtistPage extends Component
             }]
         artist = this.state.artist !== null ? this.state.artist : artist;
         albums = this.state.albums !== null ? this.state.albums : albums;
-        console.log(albums);
-        
         return (
             <div className="panel panel-info">
                 <div className="panel-heading">
