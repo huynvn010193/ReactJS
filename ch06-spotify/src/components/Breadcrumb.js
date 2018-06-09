@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route,Link } from 'react-router-dom';
 
+const MenuLink = ({ menu }) => {
+    return(
+        <Route 
+            path = { menu.to }
+            exact = { menu.exact }
+            children = 
+            {
+                ({ macth }) => {
+                    console.log(macth);
+                    if(macth !== null)
+                    {
+                        return <li className="active">{menu.name}</li>;
+                    }
+                    else
+                    {
+                        return <li>
+                                <Link to={ menu.to }>{menu.name}</Link>;
+                            </li>;
+                    }
+                }
+            }
+        />
+    )
+}
 
 class Breadcrumb extends Component {
     constructor(props) {
@@ -12,13 +37,25 @@ class Breadcrumb extends Component {
     }
 
     render() {
-        return (
-            <ol className="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li><a href="/artist/4mzMFxVZNS2uCVNdsVFoj5">Thu Minh</a></li>
-                <li className="active">Giác Quan Thứ, Vol. 6</li>
-            </ol>
-        );
+        let menus = this.props.breadcrumb;
+        let xhtml = null;
+        if(menus.length > 0){
+            xhtml = menus.map((menu,index) => {
+                return (
+                    <MenuLink menu={menu} key={index}/>
+                );
+            });
+        }
+        return  <ol className="breadcrumb">{xhtml}</ol>;
+    }
+
+}
+
+const mapStateToProps = state =>
+{
+    //console.log(state);
+    return {
+        breadcrumb: state.breadcrumb
     }
 }
 

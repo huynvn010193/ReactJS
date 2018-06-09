@@ -5,8 +5,6 @@ class Album extends Component {
     render() {
         let {item} = {name:'',images:[{url:''}],id:''};
         item = this.props.item !== null ? this.props.item : item;
-        console.log(item);
-        
         return (
             <div className="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <div className="thumbnail">
