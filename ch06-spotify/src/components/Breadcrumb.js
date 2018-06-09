@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 
 class Breadcrumb extends Component {
     constructor(props) {
@@ -20,4 +22,4 @@ class Breadcrumb extends Component {
     }
 }
 
-export default Breadcrumb;
+export default connect(mapStateToProps,null) (Breadcrumb);
