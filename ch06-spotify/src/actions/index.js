@@ -16,7 +16,7 @@ export const actChangeQuery = (query) =>
     }
 }
 
-export const artGoArtist = (name,to) => {
+export const actGoArtist = (name,to) => {
     return{
         type: types.GO_ARTIST,
         name,

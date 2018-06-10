@@ -9,10 +9,11 @@ const MenuLink = ({ menu }) => {
             exact = { menu.exact }
             children = 
             {
-                ({ macth }) => {
-                    console.log(macth);
-                    if(macth !== null)
+                ({ match }) => {
+                    if(match !== null)
                     {
+                        console.log(match);
+                        console.log("123");
                         return <li className="active">{menu.name}</li>;
                     }
                     else
@@ -38,6 +39,7 @@ class Breadcrumb extends Component {
 
     render() {
         let menus = this.props.breadcrumb;
+        console.log(menus);
         let xhtml = null;
         if(menus.length > 0){
             xhtml = menus.map((menu,index) => {
