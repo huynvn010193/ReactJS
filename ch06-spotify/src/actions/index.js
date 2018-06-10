@@ -15,3 +15,11 @@ export const actChangeQuery = (query) =>
         query
     }
 }
+
+export const artGoArtist = (name,to) => {
+    return{
+        type: types.GO_ARTIST,
+        name,
+        to
+    }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Album from '../components/Album';
 import SpotifyAxios from './../services/SpotifyAxios';
 
@@ -136,4 +137,12 @@ class ArtistPage extends Component
     }
 }
 
-export default ArtistPage;
+const mapDispatchToProps = (dispath,ownProps) => {
+    return {
+        changeBreadcrumb: (name,to) =>{
+            dispath(artGoArtist(name,to));
+        }
+    }
+}
+
+export default connect(null,mapDispatchToProps) (ArtistPage);

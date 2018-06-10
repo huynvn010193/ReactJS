@@ -16,8 +16,8 @@ const MenuLink = ({ menu }) => {
 		    children=
 			    {
 			    	({ match }) => {
+						console.log(match);
 			    		let active = (match !== null) ? "active":"";
-
 			    		return (
 			    			<li className={`nav-item px-lg-4 ${active}`}>
 						        <Link to={menu.to} className="nav-link text-uppercase text-expanded">

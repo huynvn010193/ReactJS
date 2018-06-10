@@ -11,6 +11,7 @@ const breadcrumb = (state = defaultState, action) =>
         case types.GO_HOME:
             return state;
         case types.GO_ARTIST:
+            console.log(action);
             return state;
         case types.GO_ALBUM:
             return state;

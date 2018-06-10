@@ -117,3 +117,41 @@
 		+ Cài đặt: 
 		npm install axios
 	- Do khi vừa vào chưa kịp đến trang Spotify lấy dữ liệu về. Nên phải gán kiểu dữ liệu ban đầu là rỗng.
+10/06/2018:
+	+ Arrow function nhận vào 1 đối tượng sẽ viết: const MenuLink = ({ menu }) => { }
+	+ Code custom menu:
+		const MenuLink = ({ menu }) => {
+			return (
+				<Route
+					path={menu.to}
+					exact={menu.exact}
+					children=
+						{
+							({ match }) => {
+								let active = (match !== null) ? "active":"";
+
+								return (
+									<li className={`nav-item px-lg-4 ${active}`}>
+										<Link to={menu.to} className="nav-link text-uppercase text-expanded">
+											{menu.name}
+										</Link>
+									</li>
+								)  	
+							}
+						}/>
+				)
+		};
+		
+		-- match : là giá trị khi phần tử nào đó dc active. 
+		-- {path: "/", url: "/", isExact: true, params: {…}}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
