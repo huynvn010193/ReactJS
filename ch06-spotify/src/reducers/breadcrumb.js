@@ -12,7 +12,8 @@ const breadcrumb = (state = defaultState, action) =>
     switch(action.type)
     {
         case types.GO_HOME:
-            return state;
+        state = [{ to: '/', name: 'Home'} ];
+            return [...state];
         case types.GO_ARTIST:
             console.log(action);
             // Cập nhật cho ArtistPage => Phần tử 1.

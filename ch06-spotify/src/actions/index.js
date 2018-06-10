@@ -23,3 +23,9 @@ export const actGoArtist = (name,to) => {
         to
     }
 }
+
+export const actGoHome = (name,to) => {
+    return{
+        type: types.GO_HOME
+    }
+}

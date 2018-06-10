@@ -10,14 +10,13 @@ const MenuLink = ({ menu }) => {
             children = 
             {
                 ({ match }) => {
-                    if(match !== null)
+                    if(match !== null && match.isExact === true)
                     {
-                        console.log(match);
-                        console.log("123");
                         return <li className="active">{menu.name}</li>;
                     }
                     else
                     {
+                        console.log(match);
                         return <li>
                                 <Link to={ menu.to }>{menu.name}</Link>;
                             </li>;
@@ -39,7 +38,6 @@ class Breadcrumb extends Component {
 
     render() {
         let menus = this.props.breadcrumb;
-        console.log(menus);
         let xhtml = null;
         if(menus.length > 0){
             xhtml = menus.map((menu,index) => {
@@ -55,7 +53,7 @@ class Breadcrumb extends Component {
 
 const mapStateToProps = state =>
 {
-    //console.log(state);
+    console.log(state);
     return {
         breadcrumb: state.breadcrumb
     }
