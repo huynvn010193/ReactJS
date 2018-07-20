@@ -34,7 +34,10 @@ class ArtistList extends Component {
             });
         }
     }
-
+    // Sử dụng cho vấn đề khi back về home thì vẫn giữ nguyên giá trị search trc đó.
+    componentWillMount() {
+        this.searchArtist(this.props.query);
+    }
     componentWillReceiveProps(nextProps)
     {
         this.searchArtist(nextProps.query);
