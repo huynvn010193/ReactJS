@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'; 
+
 import Track from '../components/Track';
 import SpotifyAxios from './../services/SpotifyAxios';
+import { actGoAlbum } from './../actions/index';
 
 class AlbumPage extends Component
 {
@@ -96,4 +99,11 @@ class AlbumPage extends Component
     }
 }
 
-export default AlbumPage;
+const mapDispatchToProps = ( dispatch,ownProps ) => {
+    return {
+        changeBreadcrumb : (name,to) =>{
+            dispatch(actGoAlbum(name, to))
+        }
+    }
+}
+export default connect(null,mapDispatchToProps)(AlbumPage);
