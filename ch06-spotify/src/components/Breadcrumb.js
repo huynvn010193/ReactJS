@@ -16,7 +16,6 @@ const MenuLink = ({ menu }) => {
                     }
                     else
                     {
-                        console.log(match);
                         return <li>
                                 <Link to={ menu.to }>{menu.name}</Link>;
                             </li>;
@@ -41,9 +40,13 @@ class Breadcrumb extends Component {
         let xhtml = null;
         if(menus.length > 0){
             xhtml = menus.map((menu,index) => {
-                return (
-                    <MenuLink menu={menu} key={index}/>
-                );
+                if(menu !== undefined)
+                {
+                    return (
+                        <MenuLink menu={menu} key={index}/>
+                    );
+                }
+                return null;
             });
         }
         return  <ol className="breadcrumb">{xhtml}</ol>;
@@ -53,7 +56,6 @@ class Breadcrumb extends Component {
 
 const mapStateToProps = state =>
 {
-    console.log(state);
     return {
         breadcrumb: state.breadcrumb
     }

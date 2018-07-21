@@ -31,9 +31,10 @@ class AlbumPage extends Component
             {   
                 this.setState({
                     album:reponse.data,
-                })
+                });
+                this.props.changeBreadcrumb(reponse.data.name,`/album/${reponse.data.id}`);
             }
-        })
+        });
     }
 
     render(){

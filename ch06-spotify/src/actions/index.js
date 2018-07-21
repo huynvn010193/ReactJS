@@ -29,3 +29,11 @@ export const actGoHome = (name,to) => {
         type: types.GO_HOME
     }
 }
+
+export const actGoAlbum = (name,to) => {
+    return {
+        type: types.GO_ALBUM,
+        name,
+        to
+    }
+}

@@ -38,6 +38,7 @@ class ArtistList extends Component {
     componentWillMount() {
         this.searchArtist(this.props.query);
     }
+    
     componentWillReceiveProps(nextProps)
     {
         this.searchArtist(nextProps.query);

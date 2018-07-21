@@ -15,12 +15,17 @@ const breadcrumb = (state = defaultState, action) =>
         state = [{ to: '/', name: 'Home'} ];
             return [...state];
         case types.GO_ARTIST:
-            console.log(action);
             // Cập nhật cho ArtistPage => Phần tử 1.
-            state[1] = {to,name};
+            state[1] = { to,name };
+            // Nếu lớn hơn 3 thì bỏ phần tử cuối cùng đi. 
+            //(0 là ptu dau => -1 là pt cuối),=> xóa 1 ptu tính từ ptu cuoi
+            if(state.length > 2) {
+                state.splice(-1,1);
+            }
             return [...state];
         case types.GO_ALBUM:
-            return state;
+            state[2] = { to,name };
+            return [...state];
         default:
             return state;
     }
