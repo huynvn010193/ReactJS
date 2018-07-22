@@ -28,6 +28,7 @@ class App extends Component {
 
   	showRoute(routes)
   	{
+		console.log(routes);
   		let xhtml = null;
   		if(routes.length > 0)
   		{
@@ -36,7 +37,8 @@ class App extends Component {
 					<Route key={index} exact={route.exact} path={route.path} component={route.main} />
 				);
 			});
-  		}
+		}
+		  
   		return <Switch>{xhtml}</Switch>;
   	}
 }

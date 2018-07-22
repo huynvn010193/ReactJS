@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {  actChangeQuery } from '../actions';
+import { compose } from '../../node_modules/redux';
 
 class FormSeach extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class FormSeach extends Component {
     }
 
     handleSearch = (event) => {
-        let {query} = this.state;
+        let { query } = this.state;
         this.props.changeQuery(query);
         event.preventDefault();
     }
@@ -33,13 +34,18 @@ class FormSeach extends Component {
         });
     }
 
+    handleKeyPress = (evt) => {
+        if(evt.key === 'Enter'){
+            this.handleSearch(evt);
+        }
+    }
+
     render() {
-        let query = (this.state.query !== '') ? this.state.query : this.props.query;
-        
+        let query = this.state.query;
         return (
             <form onSubmit={this.handleSearch} className="form-inline">
                 <div className="form-group">
-                    <input name="query" onChange={this.handleChange} value={query} type="text" className="form-control" placeholder="Enter artist name ..." />
+                    <input name="query" onKeyPress={this.handleKeyPress} onChange={this.handleChange} value={query} type="text" className="form-control" placeholder="Enter artist name ..." />
                     <button onClick={this.handleSearch} type="button" className="btn btn-danger">Search</button>
                     <button onClick={this.handleClear} type="button" className="btn btn-warning">Clear</button>
                 </div>
