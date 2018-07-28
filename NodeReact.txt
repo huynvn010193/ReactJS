@@ -144,8 +144,9 @@
 		
 		-- match : là giá trị khi phần tử nào đó dc active. 
 		-- {path: "/", url: "/", isExact: true, params: {…}}
-		
-		
+28/07/2018:	
+	FireBase: https://firebase.google.com/docs/database/web/read-and-write?authuser=0
+	
 		
 		
 		
