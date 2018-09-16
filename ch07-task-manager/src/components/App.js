@@ -18,31 +18,39 @@ class App extends Component {
           <div className="col-xs-2 col-sm-2 col-md-2 col-log-2">
             <Menu />
           </div>
+          <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+            { this.showRoute(routes) }
+          </div>
         </div>
       </Router>
-      // <Router>
-      //   <div className="container">
-      //     <Title/>
-      //     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-      //       <Menu />
-      //     </div>
-      //     <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-      //       {/* {this.showRoute(routes)} */}
-      //     </div>
-      //   </div>
-      // </Router>
     );
   }
 
   // showRoute(routes) {
   //   let xhtml = null;
   //   if(routes.length > 0) {
-  //     xhtml = routes.map(() => {
-  //       <Route key={index} exact={route.exact} path={route.path} component={route.main}/>
+  //     xhtml = routes.map(( route,index ) => {
+  //       return(
+  //         <Route key={index} exact={route.exact} path={route.path} component={route.main}/>
+  //       );
   //     });
   //   }
   //   return <Switch>{xhtml}</Switch>
   // }
+
+  showRoute(routes)
+  {
+    let xhtml = null;
+    if(routes.length > 0 )
+    {
+      xhtml = routes.map((route,index) =>{
+          return(
+              <Route key={index} exact={route.exact} path={route.path} component={route.main} />
+          );
+      });
+    }
+    return <Switch>{xhtml}</Switch>;
+  }
 }
 
 export default App;
