@@ -26,18 +26,6 @@ class App extends Component {
     );
   }
 
-  // showRoute(routes) {
-  //   let xhtml = null;
-  //   if(routes.length > 0) {
-  //     xhtml = routes.map(( route,index ) => {
-  //       return(
-  //         <Route key={index} exact={route.exact} path={route.path} component={route.main}/>
-  //       );
-  //     });
-  //   }
-  //   return <Switch>{xhtml}</Switch>
-  // }
-
   showRoute(routes)
   {
     let xhtml = null;

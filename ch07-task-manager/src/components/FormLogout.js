@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FormLogin extends Component {
+class FormLogout extends Component {
   constructor(props) {
     super(props);
   }
@@ -9,19 +9,25 @@ class FormLogin extends Component {
     return (
       <div className="panel panel-info">
         <div className="panel-heading">
-          <h3 className="panel-title">Sign In</h3></div>
+          <h3 className="panel-title">Sign Up</h3></div>
         <div className="panel-body">
           <form className="form-horizontal">
             <div className="form-group">
               <label htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
               <div className="col-sm-6">
-                <input type="text" defaultValue name="email" className="form-control" id="inputEmail3" placeholder="Email" value="" />
+                <input type="text" defaultValue name="email" className="form-control" id="inputEmail3" placeholder="Email" value=""/>
               </div>
             </div>
             <div className="form-group">
               <label htmlFor="inputPassword3" className="col-sm-2 control-label">Password</label>
               <div className="col-sm-6">
                 <input type="text" defaultValue name="password" className="form-control" id="inputPassword3" placeholder="Password" value="" />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputEmail3" className="col-sm-2 control-label">Website</label>
+              <div className="col-sm-6">
+                <input type="text" defaultValue name="website" className="form-control" id="inputEmail3" placeholder="Website" value=""  />
               </div>
             </div>
             <div className="form-group">
@@ -32,8 +38,8 @@ class FormLogin extends Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default FormLogin;
+export default FormLogout;

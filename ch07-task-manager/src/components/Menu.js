@@ -10,7 +10,7 @@ class Menu extends Component {
       <div className="list-group">
           <a className="list-group-item " aria-current="false" href="/task">Task</a>
           <a className="list-group-item " aria-current="false" href="/signin">Signin</a>
-          <a className="list-group-item active active" aria-current="true" href="/signup">Signin</a>
+          <a className="list-group-item " aria-current="false" href="/signup">Signup</a>
       </div>
     );
   }
