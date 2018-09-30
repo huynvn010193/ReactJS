@@ -17,15 +17,5 @@ const config = {
   storageBucket: "task-manager-reactjs-bc227.appspot.com",
   messagingSenderId: "735348947886"
 };
-export const firebaseApp = firebase.initializeApp(config);
-// // firebase.database().ref("tasks/job01").set({
-// //   id: 4,
-// //   name: "fix 012345",
-// // });
-// //var database = firebase.database();
-
-// var starCountRef = firebase.database().ref('tasks/job01');
-// starCountRef.on('value', (snapshot)=> {
-//   // updateStarCount(postElement, snapshot.val());
-//   console.log(snapshot.val());
-// });
+export const firebaseApp    = firebase.initializeApp(config);
+export const taskRef        = firebase.database().ref("tasks");
