@@ -157,8 +157,16 @@
 				profile_picture : imageUrl
 			  });
 			}
-		
-		
+01/10/2018: 
+	Mỗi đối tượng là 1 DataSnapshot
+		taskRef = firebase.database().ref("tasks");
+		taskRef.on('value', items => {
+		  let data = [];
+		  items.forEach(item =>{
+			data.push(item.val())
+		  })
+		  console.log(data);
+		});
 		
 		
 		
