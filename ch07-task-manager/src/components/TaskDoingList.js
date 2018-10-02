@@ -18,8 +18,10 @@ class TaskDoingList extends Component {
     taskRef.on('value', items => {
       let data = [];
       items.forEach(item =>{
+        console.log(item);
+        
         let { email,name } = item.val();
-        data.push({ email,name });
+        data.push({ email, name, key:item.key });
       })
       this.setState({ items: data});
     });
@@ -27,25 +29,32 @@ class TaskDoingList extends Component {
 
   render() {
     let { items } = this.state;
-    console.log(items);
 
     return(
       <div className="panel panel-info">
         <div className="panel-heading">
           <h3 className="panel-title">Task Doing</h3></div>
         <div className="panel-body">
-          <ul className="list-group">
-            <TaskDoingItem />
-            <TaskDoingItem />
-            <TaskDoingItem />
-          </ul>
+          {this.showElementBody(items)}
         </div>
         <div className="panel-footer text-right">
-          <FormAddTask/>
         </div>
       </div>
     );
   }
+
+  showElementBody = (items) => {
+    let xhtml = null;
+    if(items.length > 0) {
+      xhtml = items.map((item,index) => {
+        return (
+          <TaskDoingItem index={index} item={item} key={index}/>
+        )
+      })
+    }
+    return <ul className="list-group">{xhtml}</ul>
+  }
+
 }
 
 export default TaskDoingList;
