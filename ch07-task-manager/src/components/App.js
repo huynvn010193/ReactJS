@@ -8,13 +8,14 @@ import {
 import routes from './../route-config';
 import Title from './Title';
 import Menu from './Menu';
-
+import Notify from './Notify';
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="container">
           <Title />
+          <Notify />
           <div className="col-xs-2 col-sm-2 col-md-2 col-log-2">
             <Menu />
           </div>

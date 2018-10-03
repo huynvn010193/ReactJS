@@ -167,7 +167,11 @@
 		  })
 		  console.log(data);
 		});
-		
+03/10/2018: 
+	Thư viện notification: react-bs-notifier: 
+		https://chadly.github.io/react-bs-notifier/
+		Cài đặt: 
+			npm install react-bs-notifier --save
 		
 		
 		
