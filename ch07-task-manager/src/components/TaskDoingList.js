@@ -18,8 +18,6 @@ class TaskDoingList extends Component {
     taskRef.on('value', items => {
       let data = [];
       items.forEach(item =>{
-        console.log(item);
-        
         let { email,name } = item.val();
         data.push({ email, name, key:item.key });
       })
