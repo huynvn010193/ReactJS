@@ -9,13 +9,7 @@ class TaskFinishList extends Component {
           <h3 className="panel-title">Task Finish</h3></div>
         <div className="panel-body">
           <ul className="list-group">
-            <li className="list-group-item">
-              <p className="task">CSS is too bad</p>
-              <span className="author">
-                <span className="glyphicon glyphicon-user" aria-hidden="true" />&nbsp;
-                admin@gmail.com
-              </span>
-            </li>
+            <TaskFinishItem/>
             <li className="list-group-item">
               <p className="task">CSS error</p>
               <span className="author">

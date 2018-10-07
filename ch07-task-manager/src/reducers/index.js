@@ -1,7 +1,8 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
+import notify from './notify';
 
-// const appReducers = combineReducers({
+const appReducers = combineReducers({
+  notify
+});
 
-// });
-
-// export default appReducers;
+export default appReducers;

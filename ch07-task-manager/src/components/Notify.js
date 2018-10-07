@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { AlertContainer,Alert } from "react-bs-notifier";
+import { connect } from 'react-redux';
 
 class Notify extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       isShow: true,
-
     }
   }
   handleDismiss = () => {
@@ -14,17 +15,22 @@ class Notify extends Component {
   }
   
   render() {
-    let { isShow } = this.state;
-    if(!isShow) return null;
-
+    let { style, title, content } = this.props.item;
+    if(content === '') return null;
     return (
       <AlertContainer position="top-left">
-        <Alert headline="headline" type="danger" onDismiss={this.handleDismiss} timeout={2000}>
-          This is a test of the Emergency Broadcast System. This is only a test.
+        <Alert headline={title} onDismiss={this.handleDismiss} timeout={2000} style={style}>
+          {content}
         </Alert>
       </AlertContainer>
     );
   }
 }
 
-export default Notify;
+const mapStateToProps = state => {
+  return {
+    item: state.notify
+  }
+}
+
+export default connect(mapStateToProps,null)(Notify);

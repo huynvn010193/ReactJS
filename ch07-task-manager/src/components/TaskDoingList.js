@@ -36,6 +36,7 @@ class TaskDoingList extends Component {
           {this.showElementBody(items)}
         </div>
         <div className="panel-footer text-right">
+          <FormAddTask/>
         </div>
       </div>
     );
