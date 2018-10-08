@@ -5,3 +5,7 @@ export const actChangeNotify = (style,title,content) => ({
   style, title, content
 })
 
+export const actHideNotify = () => ({
+  type: types.HIDE_NOTIFY,
+});
+
