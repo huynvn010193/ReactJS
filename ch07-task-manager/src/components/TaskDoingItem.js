@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { tasksCompletedRef, taskRef } from './../firebase';
 
+import * as notify from './../constants/Notify';
+
 class TaskDoingItem extends Component {
 
   handleComplete = (item) => {
@@ -9,6 +11,9 @@ class TaskDoingItem extends Component {
     
     // Add TasksComplete
     tasksCompletedRef.push(item);
+
+    // Show notifycation complete task
+    this.props.changeNotify(notify.NOTI_TYPE_DANGER,notify.NOTI_COMPLETED_TASK_TITLE,notify.NOTI_COMPLETED_TASK_MESSAGE);
   }
 
   render() {

@@ -1,6 +1,11 @@
+
+export const NOTI_TYPE_SUCCESS = 'success';
+export const NOTI_TYPE_INFO = 'info';
+export const NOTI_TYPE_DANGER = 'danger';
+export const NOTI_TYPE_WARNING = 'warning';
+
 // _____________________________________________________________________________
 //                                                                  ADD_TASK
-export const NOTI_TYPE_SUCCESS = 'success';
 export const NOTI_ADD_TASK_TITLE = "Add Task";
 export const NOTI_ADD_TASK_MESSAGE = "Add Task Successful";
 
