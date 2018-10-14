@@ -17,6 +17,7 @@ const config = {
   storageBucket: "task-manager-reactjs-bc227.appspot.com",
   messagingSenderId: "735348947886"
 };
+
 export const firebaseApp    = firebase.initializeApp(config);
 export const taskRef        = firebase.database().ref("tasks");
 export const tasksCompletedRef = firebase.database().ref("tasksComplete");

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import FormLogout from './../components/FormLogout';
+import FormSignUp from './../components/FormSignUp';
 
 class SignUpPage extends Component {
   render() {
     return (
       <div>
-        <FormLogout />
+        <FormSignUp />
       </div>
     );
   }
