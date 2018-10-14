@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 class TaskFinishItem extends Component {
   render() {
+    let item = { name:'', email:'' };
+    item = this.props.item !== undefined ? this.props.item : item;
+    
     return(
       <li className="list-group-item">
-        <p className="task">CSS is too bad</p>
+        <p className="task">{item.name}</p>
         <span className="author">
           <span className="glyphicon glyphicon-user" aria-hidden="true" />&nbsp;
-          admin@gmail.com
+          {item.email}
         </span>
       </li>
     );
