@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { firebaseApp } from './../firebase';
+import { firebaseApp, usersRef } from './../firebase';
 import { connect } from  'react-redux';
 import { actChangeNotify } from './../actions/index';
 import * as notify from './../constants/Notify';
@@ -25,10 +25,16 @@ class FormSignUp extends Component {
   }
 
   handleSubmit = (event) => {
-    let {email,password,website} = this.state;
+    let { email, password, website} = this.state;
     firebaseApp.auth()
       .createUserAndRetrieveDataWithEmailAndPassword(email,password)
+      // Tạo ra thành phần của bảng users 
       .then(data => {
+        usersRef.child(data.user.uid).set({
+          website,
+          isAdmin: false,
+          uid: data.user.uid
+        });
         this.props.changeNotify(notify.NOTI_TYPE_SUCCESS,notify.NOTI_SINGUP_SUCCESSFULL_TITLE,notify.NOTI_SINGUP_SUCCESSFULL_MESSAGE);
       })
       .catch((error) => {
@@ -59,7 +65,7 @@ class FormSignUp extends Component {
             <div className="form-group">
               <label htmlFor="inputEmail3" className="col-sm-2 control-label">Website</label>
               <div className="col-sm-6">
-                <input type="text" value={this.state.website} onChange={this.handleChange} name="website" className="form-control" id="inputEmail3" placeholder="Website" />
+                <input type="text" value={this.state.website} onChange={this.handleChange} name="website" className="form-control" id="inputWebsite3" placeholder="Website" />
               </div>
             </div>
             <div className="form-group">
