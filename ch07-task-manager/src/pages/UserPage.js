@@ -3,6 +3,7 @@ import FormUser from "./../components/FormUser";
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+
 class UserPage extends Component {
   render() {
     let {user} = this.props;
