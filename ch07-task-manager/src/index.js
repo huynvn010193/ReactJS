@@ -22,10 +22,9 @@ firebaseApp.auth().onAuthStateChanged(function(user) {
     store.dispatch(actLogin(userInfo));
   } else {
     console.log('user logout');
+    store.dispatch(actLogout());
   }
 });
-
-console.log(store.getState());
 
 ReactDOM.render(
   <Provider store = {store}>

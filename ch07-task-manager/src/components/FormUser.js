@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
+import { firebaseApp } from './../firebase';
 
 class FormUser extends Component {
+
+  handleClick = () => {
+    firebaseApp.auth().signOut();
+  }
   render() {
+    let {user} = this.props;
+    let email = user.email;
+    let userID = user.uid;
     return (
-      <div className="panel panel-info">
-        <div className="panel-heading">
-          <h3 className="panel-title">User</h3></div>
-        <div className="panel-body">
-          <div>
-            <h4>Email: lthlan54@gmail.com</h4>
-            <h4>UserID: W740UjZcnlSMgiwfBuYV4aMU9i43</h4>
-            <h4>Website: hailan.com</h4>
-            <button type="submit" className="btn btn-success">Logout</button>
-          </div>
-        </div>
+      <div>
+        <h4>Email: {email}</h4>
+        <h4>UserID: {userID}</h4>
+        <h4>Website: hailan.com</h4>
+        <button type="submit" onClick={this.handleClick} className="btn btn-success">Logout</button>
       </div>
     );
   }
