@@ -6,11 +6,26 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import appReducers from './reducers/index';
+import { firebaseApp } from './firebase';
+import { actLogin, actLogout } from './actions/index';
 
 const store = createStore(
   appReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+firebaseApp.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    let userInfo = {
+      email: user.email,
+      uid: user.uid,
+    }
+    store.dispatch(actLogin(userInfo));
+  } else {
+    console.log('user logout');
+  }
+});
+
+console.log(store.getState());
 
 ReactDOM.render(
   <Provider store = {store}>

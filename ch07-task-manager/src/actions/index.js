@@ -9,3 +9,11 @@ export const actHideNotify = () => ({
   type: types.HIDE_NOTIFY,
 });
 
+export const actLogin = (userInfo) => ({
+  type: types.USER_LOGIN,
+  userInfo
+});
+
+export const actLogout = () => ({
+  type: types.USER_LOGOUT
+});
