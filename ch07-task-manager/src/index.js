@@ -6,7 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import appReducers from './reducers/index';
-import { firebaseApp } from './firebase';
+import { firebaseApp, usersRef } from './firebase';
 import { actLogin, actLogout } from './actions/index';
 
 const store = createStore(
@@ -18,8 +18,15 @@ firebaseApp.auth().onAuthStateChanged(function(user) {
     let userInfo = {
       email: user.email,
       uid: user.uid,
+      website: '',
+      isAdmin: false,
     }
-    store.dispatch(actLogin(userInfo));
+    // Lấy ra thông tin của User đăng nhập
+    usersRef.child(user.uid).once('value').then(data => {
+      userInfo.isAdmin = data.val().isAdmin;
+      userInfo.website = data.val().website;
+      store.dispatch(actLogin(userInfo));
+    })
   } else {
     console.log('user logout');
     store.dispatch(actLogout());
