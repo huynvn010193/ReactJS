@@ -29,7 +29,8 @@ class TaskDoingList extends Component {
 
   render() {
     let { items } = this.state;
-
+    let {user:{userInfo:{email}}} = this.props;
+    
     return(
       <div className="panel panel-info">
         <div className="panel-heading">
@@ -38,7 +39,7 @@ class TaskDoingList extends Component {
           {this.showElementBody(items)}
         </div>
         <div className="panel-footer text-right">
-          <FormAddTask changeNotify={this.props.changeNotify}/>
+          <FormAddTask changeNotify={this.props.changeNotify} email={email}/>
         </div>
       </div>
     );

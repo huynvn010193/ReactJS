@@ -84,12 +84,6 @@ class TaskFinishList extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user,
-  }
-}
-
 const mapDispathToProps = (dispath) => {
   return {
     changeNotify: (style,title,content) => {
@@ -98,4 +92,4 @@ const mapDispathToProps = (dispath) => {
   }
 }
 
-export default connect(mapStateToProps,mapDispathToProps)(TaskFinishList);
+export default connect(null,mapDispathToProps)(TaskFinishList);

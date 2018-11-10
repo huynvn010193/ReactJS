@@ -24,7 +24,7 @@ class FormAddTask extends Component {
     let { task } = this.state;
     taskRef.push({
       name: task,
-      email: "admin@gmail.com"
+      email: this.props.email
     });
     this.props.changeNotify(notify.NOTI_TYPE_SUCCESS,notify.NOTI_ADD_TASK_TITLE,notify.NOTI_ADD_TASK_MESSAGE);
     this.setState({task:''});
