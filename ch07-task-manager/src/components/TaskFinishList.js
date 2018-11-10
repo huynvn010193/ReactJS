@@ -35,7 +35,9 @@ class TaskFinishList extends Component {
 
   render() {
     let items = this.state.items;
-    let isAdmin = true;
+    let { user: {userInfo}} = this.props 
+    let isAdmin = userInfo.isAdmin;
+    
     return(
       <div className="panel panel-success">
         <div className="panel-heading">
@@ -43,11 +45,19 @@ class TaskFinishList extends Component {
         <div className="panel-body">
           {this.showElementBody(items,isAdmin)}
         </div>
+          {this.showElementFooter(isAdmin)}
+      </div>
+    );
+  }
+
+  showElementFooter = (isAdmin) => {
+    if(isAdmin === true) {
+      return (
         <div className="panel-footer text-right">
           <button type="button" onClick={this.handleClear} className="btn btn-danger">Clear All</button>
         </div>
-      </div>
-    );
+      )
+    }
   }
 
   showElementBody = (items,isAdmin) => {
@@ -74,7 +84,13 @@ class TaskFinishList extends Component {
   }
 }
 
-const dispathToProps = (dispath) => {
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+  }
+}
+
+const mapDispathToProps = (dispath) => {
   return {
     changeNotify: (style,title,content) => {
       dispath(actChangeNotify(style,title,content));
@@ -82,4 +98,4 @@ const dispathToProps = (dispath) => {
   }
 }
 
-export default connect(null,dispathToProps)(TaskFinishList);
+export default connect(mapStateToProps,mapDispathToProps)(TaskFinishList);

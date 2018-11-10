@@ -28,7 +28,6 @@ firebaseApp.auth().onAuthStateChanged(function(user) {
       store.dispatch(actLogin(userInfo));
     })
   } else {
-    console.log('user logout');
     store.dispatch(actLogout());
   }
 });
