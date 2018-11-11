@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import TaskFinishItem from './TaskFinishItem';
-import TaskFinishItemAdmin from './TaskFinishItemAdmin';
 import { tasksCompletedRef } from './../firebase';
-import { connect } from 'react-redux';
-import { actChangeNotify } from './../actions/index';
-import * as notify from './../constants/Notify';
 
 class TaskFinishList extends Component {
   constructor(props) {

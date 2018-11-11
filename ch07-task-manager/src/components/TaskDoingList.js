@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TaskDoingItem from './TaskDoingItem';
 import FormAddTask from './FormAddTask';
 import { taskRef } from './../firebase';
-import { connect } from 'react-redux';
-import { actChangeNotify } from './../actions/index';
 
 class TaskDoingList extends Component {
 
@@ -58,12 +56,4 @@ class TaskDoingList extends Component {
   }
 }
 
-const mapDispathToProps = (dispath) => {
-  return {
-    changeNotify: (style,title,content) => {
-      dispath(actChangeNotify(style,title,content));
-    }
-  }
-}
-
-export default connect(null,mapDispathToProps)(TaskDoingList);
+export default TaskDoingList;

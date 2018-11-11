@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import TaskFinishItemAdmin from './TaskFinishItemAdmin';
 import { tasksCompletedRef } from './../firebase';
-import { connect } from 'react-redux';
-import { actChangeNotify } from './../actions/index';
 import * as notify from './../constants/Notify';
 
 class TaskFinishListAdmin extends Component {
@@ -65,12 +63,4 @@ class TaskFinishListAdmin extends Component {
   }
 }
 
-const mapDispathToProps = (dispath) => {
-  return {
-    changeNotify: (style,title,content) => {
-      dispath(actChangeNotify(style,title,content));
-    }
-  }
-}
-
-export default connect(null,mapDispathToProps)(TaskFinishListAdmin);
+export default TaskFinishListAdmin;

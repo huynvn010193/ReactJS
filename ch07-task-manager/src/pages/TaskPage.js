@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import TaskDoingList from './../components/TaskDoingList';
 import TaskFinishList from './../components/TaskFinishList';
 import TaskFinishListAdmin from './../components/TaskFinishListAdmin';
-import { connect } from 'react-redux';
-
+import { actChangeNotify } from './../actions/index';
 
 class TaskPage extends Component {
   render () {
-    let { user } = this.props;
+    let { user, changeNotify } = this.props;
     let { user: {userInfo}} = this.props 
     let isAdmin = userInfo.isAdmin;
-    console.log(isAdmin);
     
     return(
       <div className="row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <TaskDoingList user={user} />
+          <TaskDoingList user={user} changeNotify={changeNotify} />
         </div>
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           {this.showTaskFinishList(isAdmin)}
@@ -25,7 +24,7 @@ class TaskPage extends Component {
   }
 
   showTaskFinishList = (isAdmin) => {
-    return (isAdmin) ? <TaskFinishListAdmin /> : <TaskFinishList />
+    return (isAdmin) ? <TaskFinishListAdmin changeNotify={this.props.changeNotify}/> : <TaskFinishList />
   }
 }
 
@@ -35,4 +34,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps,null)(TaskPage);
+const mapDispathToProps = (dispath) => {
+  return {
+    changeNotify: (style,title,content) => {
+      dispath(actChangeNotify(style,title,content));
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispathToProps)(TaskPage);

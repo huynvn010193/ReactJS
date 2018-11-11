@@ -8,7 +8,7 @@ class UserPage extends Component {
   render() {
     let {user} = this.props;
     if(user.isLogin === false) {
-      return <Redirect to="/signin"/>;
+      return <Redirect to="/"/>;
     }
     return (
       <div className="panel panel-info">
