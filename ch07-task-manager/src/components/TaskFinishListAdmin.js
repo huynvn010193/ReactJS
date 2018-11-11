@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import TaskFinishItem from './TaskFinishItem';
 import TaskFinishItemAdmin from './TaskFinishItemAdmin';
 import { tasksCompletedRef } from './../firebase';
 import { connect } from 'react-redux';
 import { actChangeNotify } from './../actions/index';
 import * as notify from './../constants/Notify';
 
-class TaskFinishList extends Component {
+class TaskFinishListAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +26,12 @@ class TaskFinishList extends Component {
     })
   }
 
+  handleClear = () => {
+    // Xóa hết các phần tử trong bảng => Phương thức set.
+    tasksCompletedRef.set([]);
+    this.props.changeNotify(notify.NOTI_TYPE_WARNING,notify.NOTI_CLEARALL_TASK_TITLE,notify.NOTI_CLEARALL_TASK_MESSAGE);
+  }
+
   render() {
     let items = this.state.items;
     
@@ -37,6 +42,9 @@ class TaskFinishList extends Component {
         <div className="panel-body">
           {this.showElementBody(items)}
         </div>
+        <div className="panel-footer text-right">
+          <button type="button" onClick={this.handleClear} className="btn btn-danger">Clear All</button>
+        </div>
       </div>
     );
   }
@@ -44,10 +52,10 @@ class TaskFinishList extends Component {
   showElementBody = (items) => {
     let xhtml = null;
     if(items.length > 0) {
-      xhtml = items.map((item,index) => {  
+      xhtml = items.map((item,index) => {
         return(
-          <TaskFinishItem item = {item} index={index} key={index}/>
-        ) 
+          <TaskFinishItemAdmin item = {item} index={index} key={index} changeNotify={this.props.changeNotify}/>
+        )  
       });
       return <ul className="list-group">{xhtml}</ul>
     }
@@ -57,4 +65,12 @@ class TaskFinishList extends Component {
   }
 }
 
-export default TaskFinishList;
+const mapDispathToProps = (dispath) => {
+  return {
+    changeNotify: (style,title,content) => {
+      dispath(actChangeNotify(style,title,content));
+    }
+  }
+}
+
+export default connect(null,mapDispathToProps)(TaskFinishListAdmin);
