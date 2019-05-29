@@ -4,13 +4,18 @@ import TaskDoingList from './../components/TaskDoingList';
 import TaskFinishList from './../components/TaskFinishList';
 import TaskFinishListAdmin from './../components/TaskFinishListAdmin';
 import { actChangeNotify } from './../actions/index';
+import { Redirect } from 'react-router-dom';
 
 class TaskPage extends Component {
   render () {
     let { user, changeNotify } = this.props;
-    let { user: {userInfo}} = this.props 
+    let { user: {userInfo, isLogin}} = this.props 
     let isAdmin = userInfo.isAdmin;
     
+    if(isLogin === false) {
+      return <Redirect to="/"/>;
+    }
+
     return(
       <div className="row">
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
