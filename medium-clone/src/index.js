@@ -4,16 +4,19 @@ import './index.css'
 // import App from './App';
 import * as serviceWorker from './serviceWorker'
 import {BrowserRouter as Router} from 'react-router-dom'
+import {CurrentUserProvider} from 'contexts/currentUser'
 
 import Routes from 'routes'
 import Topbar from 'components/topbar'
 
 const App = () => {
   return (
-    <Router>
-      <Topbar />
-      <Routes />
-    </Router>
+    <CurrentUserProvider>
+      <Router>
+        <Topbar />
+        <Routes />
+      </Router>
+    </CurrentUserProvider>
   )
 }
 
