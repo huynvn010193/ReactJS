@@ -5,6 +5,7 @@ import './index.css'
 import * as serviceWorker from './serviceWorker'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {CurrentUserProvider} from 'contexts/currentUser'
+import CurrentUserChecker from 'components/currentUserChecker'
 
 import Routes from 'routes'
 import Topbar from 'components/topbar'
@@ -12,10 +13,12 @@ import Topbar from 'components/topbar'
 const App = () => {
   return (
     <CurrentUserProvider>
-      <Router>
-        <Topbar />
-        <Routes />
-      </Router>
+      <CurrentUserChecker>
+        <Router>
+          <Topbar />
+          <Routes />
+        </Router>
+      </CurrentUserChecker>
     </CurrentUserProvider>
   )
 }
