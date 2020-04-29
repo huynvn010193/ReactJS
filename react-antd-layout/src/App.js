@@ -1,13 +1,17 @@
 import React from "react";
 import "./App.css";
-import { Layout, Avatar, Menu, Breadcrumb } from "antd";
+import { Layout, Avatar, Menu, Breadcrumb, Tree } from "antd";
 import Title from "antd/lib/typography/Title";
 import { MailOutlined } from "@ant-design/icons";
 import SubMenu from "antd/lib/menu/SubMenu";
+import { Batsmen, Bowler } from './Cricketer';
 
 const { Header, Footer, Sider, Content } = Layout;
+//const { TreeNode } = Tree;
 
 function App() {
+  // let bestBatsmen = new Batsmen("S.P.D. Smit", "AUS", 6973);
+  // let bestBowler = new Bowler("Pat Cummins", "AUS", 123);
   return (
     <div className="App">
       <Layout>
@@ -45,7 +49,18 @@ function App() {
                 style={{ background: "#fff", padding: 24, minHeight: 500 }}
                 className="site-layout-content"
               >
-                Content
+                {/* <Tree key="0" showLine defaultExpandedKeys={["0-0-0"]}>
+                  <TreeNode title={bestBatsmen.getName()} key="0-0-0">
+                    <TreeNode title={"Team - " + bestBatsmen.getTeamName()} key="0-0-0-1"></TreeNode>
+                    <TreeNode title={"Runs - " + bestBatsmen.getRuns()} key="0-0-0-2"></TreeNode>
+                  </TreeNode>
+                  <TreeNode title={bestBowler.getName()} key="0-0-1">
+                    <TreeNode title={"Team - " + bestBowler.getTeamName()} key="0-0-1-1"></TreeNode>
+                    <TreeNode title={"Runs - " + bestBowler.getWickets()} key="0-0-1-2"></TreeNode>
+                  </TreeNode>
+                </Tree> */}
+                <Batsmen name='S.P.D. Smit' team='AUS' runs='6973' />
+                <Bowler name='Pat Cummins' team='AUS' wickets='123' />
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
