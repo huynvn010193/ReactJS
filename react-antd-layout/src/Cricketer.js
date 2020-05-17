@@ -1,14 +1,15 @@
-import React from 'react';
-import { Card, Avatar } from 'antd';
-import Meta
+import React, { Fragment } from "react";
+import { Card, Avatar } from "antd";
+import Meta from "antd/lib/card/Meta";
+import Title from "antd/lib/typography/Title";
 
 // class Cricketer extends React.Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
 //       name: props.name,
-//       team: props.team
-//     }
+//       team: props.team,
+//     };
 //   }
 
 //   getName = () => this.state.name;
@@ -18,7 +19,7 @@ import Meta
 //       <div>
 //         <span> Team: {this.state.team}</span>
 //       </div>
-//     )
+//     );
 //   }
 // }
 
@@ -27,8 +28,8 @@ import Meta
 //     super(props);
 //     this.state = {
 //       ...this.state,
-//       wickets: props.wickets
-//     }
+//       wickets: props.wickets,
+//     };
 //   }
 
 //   render() {
@@ -38,7 +39,7 @@ import Meta
 //         {super.render()}
 //         <span>Wickets: {this.state.wickets}</span>
 //       </div>
-//     )
+//     );
 //   }
 // }
 
@@ -47,8 +48,8 @@ import Meta
 //     super(props);
 //     this.state = {
 //       ...this.state,
-//       runs: props.runs
-//     }
+//       runs: props.runs,
+//     };
 //   }
 
 //   render() {
@@ -58,7 +59,7 @@ import Meta
 //         {super.render()}
 //         <span>Runs: {this.state.runs}</span>
 //       </div>
-//     )
+//     );
 //   }
 // }
 
@@ -92,5 +93,45 @@ import Meta
 //   getRuns = () => this.runs;
 // }
 
+export const Cricketer = ({ name, team, avatarSrc, children }) => (
+  <Card bordered style={{ width: 300, float: "left", margin: 10 }}>
+    <Meta avatar={<Avatar src={avatarSrc} />} title={name} />
+    <hr></hr>
+    Team: {team}
+    <br />
+    <br />
+    {children}
+  </Card>
+);
 
+export const ODICareer = ({ matches, children }) => (
+  <Card.Grid style={{ width: "100%" }}>
+    <Title level={4}>ODI Matches: {matches}</Title>
+    {children}
+  </Card.Grid>
+);
 
+export const TestCareer = ({ matches, children }) => (
+  <Card.Grid style={{ width: "100%" }}>
+    <Title level={4}>ODI Matches: {matches}</Title>
+    {children}
+  </Card.Grid>
+);
+
+export const Batting = ({ runs, score }) => (
+  <Fragment>
+    Runs : {runs}
+    <br />
+    <br />
+    Top score: {score}
+  </Fragment>
+);
+
+export const Bowling = ({ wickets, bowlingAvg }) => (
+  <Fragment>
+    Wickets: {wickets}
+    <br />
+    <br />
+    Bowling Average: {bowlingAvg}
+  </Fragment>
+);

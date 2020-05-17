@@ -4,7 +4,15 @@ import { Layout, Avatar, Menu, Breadcrumb, Tree } from "antd";
 import Title from "antd/lib/typography/Title";
 import { MailOutlined } from "@ant-design/icons";
 import SubMenu from "antd/lib/menu/SubMenu";
-import { Batsmen, Bowler } from './Cricketer';
+import {
+  Batsmen,
+  Bowler,
+  Cricketer,
+  ODICareer,
+  Batting,
+  Bowling,
+  TestCareer,
+} from "./Cricketer";
 
 const { Header, Footer, Sider, Content } = Layout;
 //const { TreeNode } = Tree;
@@ -46,21 +54,28 @@ function App() {
                 <Breadcrumb.Item>Doashboard</Breadcrumb.Item>
               </Breadcrumb>
               <div
-                style={{ background: "#fff", padding: 24, minHeight: 500 }}
+                style={{ background: "#fff", padding: 24, minHeight: 440 }}
                 className="site-layout-content"
               >
-                {/* <Tree key="0" showLine defaultExpandedKeys={["0-0-0"]}>
-                  <TreeNode title={bestBatsmen.getName()} key="0-0-0">
-                    <TreeNode title={"Team - " + bestBatsmen.getTeamName()} key="0-0-0-1"></TreeNode>
-                    <TreeNode title={"Runs - " + bestBatsmen.getRuns()} key="0-0-0-2"></TreeNode>
-                  </TreeNode>
-                  <TreeNode title={bestBowler.getName()} key="0-0-1">
-                    <TreeNode title={"Team - " + bestBowler.getTeamName()} key="0-0-1-1"></TreeNode>
-                    <TreeNode title={"Runs - " + bestBowler.getWickets()} key="0-0-1-2"></TreeNode>
-                  </TreeNode>
-                </Tree> */}
-                <Batsmen name='S.P.D. Smit' team='AUS' runs='6973' />
-                <Bowler name='Pat Cummins' team='AUS' wickets='123' />
+                <Cricketer name="Virat Kholi" team="IND" avatarSrc="./vk.jpg">
+                  <ODICareer matches="239">
+                    <Batting runs="11,520" score="183" />
+                    <br></br>
+                    <Bowling wickets="4" bowlingAvg="166.25" />
+                  </ODICareer>
+                  <TestCareer matches="79">
+                    <Batting runs="6,749" score="243" />
+                  </TestCareer>
+                </Cricketer>
+                <Cricketer
+                  name="Jascript Bumrah"
+                  team="IND"
+                  avatarSrc="./jb.jpg"
+                >
+                  <TestCareer matches="12">
+                    <Bowling wickets="62" bowlingAvg="20.63" />
+                  </TestCareer>
+                </Cricketer>
               </div>
             </Content>
             <Footer style={{ textAlign: "center" }}>
